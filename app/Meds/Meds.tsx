@@ -36,9 +36,9 @@ export default function Meds() {
         {categories.map((category, index) => (
           <Card
             key={index}
-            type="horizontal" // Use horizontal type for the Card component
+            type="vertical"
             title={category.name}
-            content={Object.values(category.subcategories).join(", ")}
+            // content={Object.values(category.subcategories).join(", ")}
             onPress={() => {
               // navigation.navigate('MedsSubCategory', { category }); // Navigate to SubcategoriesScreen with category data
             }}
@@ -64,5 +64,4 @@ const styles = StyleSheet.create({
   card: {
     marginBottom: 16,
   },
-  // Define any other styles you need here
 });

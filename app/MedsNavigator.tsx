@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
-
-import ClinicalCalculators from './ClinicalCalculators/ClinicalCalculators';
 import Meds from './Meds/Meds'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 

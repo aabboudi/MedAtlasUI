@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Dimensions } from 'react-native';
+import Colors from '@/constants/Colors';
+import { useColorScheme } from '@/components/useColorScheme';
 
 const { width, height } = Dimensions.get('window');
 const vh = height / 100;
@@ -19,12 +21,18 @@ const Card: React.FC<CardProps> = ({ type, title, content, onPress, style }) => 
   const cardStyle = type === 'vertical' ? styles.verticalCard : (style || styles.horizontalCardTopics);
   const titleStyle = type === 'vertical' ? styles.verticalTitle : styles.horizontalTitle;
   const descStyle = type === 'vertical' ? styles.verticalDesc : styles.desc;
+  const colorScheme = useColorScheme();
+  const textColor = Colors[colorScheme ?? 'light'].tint;
 
   return (
-    <TouchableOpacity style={cardStyle} onPress={onPress} activeOpacity={0.75}>
+    <TouchableOpacity style={[cardStyle, {
+      borderWidth: 2,
+      borderColor: '#333',
+      borderRadius: 10,
+    }]} onPress={onPress} activeOpacity={0.75}>
       <View style={styles.cardContent}>
         <View style={styles.textContent}>
-          {title && <Text style={titleStyle}>{title}</Text>}
+          {title && <Text style={[titleStyle, {color: textColor}]}>{title}</Text>}
           {content && <Text style={descStyle}>{content}</Text>}
         </View>
         {type === 'vertical' && (
@@ -34,7 +42,7 @@ const Card: React.FC<CardProps> = ({ type, title, content, onPress, style }) => 
     </TouchableOpacity>
   );
 };
-
+const textColor = "0000ff";
 const styles = StyleSheet.create({
   horizontalCardTopics: {
     width: 30 * vw,
@@ -62,7 +70,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginHorizontal: 1.3 * vw,
     marginVertical: 1 * vh,
-    backgroundColor: '#FFFFFF',
+    // backgroundColor: '#FFFFFF',
     borderRadius: 8,
     shadowOpacity: 0.3,
     shadowRadius: 4,
@@ -79,7 +87,6 @@ const styles = StyleSheet.create({
   verticalTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#333',
     textAlign: 'left',
   },
   desc: {
