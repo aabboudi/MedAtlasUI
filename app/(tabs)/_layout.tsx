@@ -7,13 +7,15 @@ import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 
+import { Feather } from '@expo/vector-icons';
+
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+// function TabBarIcon(props: {
+//   name: React.ComponentProps<typeof FontAwesome>['name'];
+//   color: string;
+// }) {
+//   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+// }
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -25,13 +27,22 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
+        tabBarStyle: {
+          backgroundColor: 'transparent',
+          height: 60,
+          marginVertical: 15,
+          paddingTop: 10,
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home',
+          headerShown: false,
+          // tabBarIcon: ({ color }) => <FontAwesome name="home" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <Feather name="home" size={24} color={color} />,
           headerRight: () => (
+            // LINK OF MODAL INFO BUTTON
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
@@ -48,12 +59,22 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="search"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Search',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <FontAwesome name="search" size={24} color={color} />
         }}
       />
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          title: 'Favorites',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <FontAwesome name="heart-o" size={24} color={color} />,
+        }}
+      />
+
     </Tabs>
   );
 }

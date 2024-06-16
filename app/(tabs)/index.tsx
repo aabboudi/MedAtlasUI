@@ -1,31 +1,132 @@
-import { StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Dimensions } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
+import Card from '@/components/Card';
 import { Text, View } from '@/components/Themed';
 
-export default function TabOneScreen() {
+import topicsData from '@/assets/temp_data/topicsData.json';
+import MoreButton from '@/components/MoreButton';
+
+
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+      <Text style={styles.title}>
+        {getGreetingMessage()}, Dr. Smith</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+      {/* <EditScreenInfo path="app/(tabs)/index.tsx" /> */}
+      
+      <View style={styles.rowView}>
+        <Text style={styles.rowTitle}>Quick Access</Text>
+        <MoreButton
+          title="See All"
+          onPress={() => (1)}
+          // onPress={() => handleNavigate(
+          //   'Topics',
+          //   { topics: topicsData }
+          // )}
+        />
+      </View>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.mb_2}>
+        {topicsData.slice(0, 5).map((topic, idx) => (
+          <Card
+            key={idx}
+            type="horizontal"
+            title={topic.name}
+            // onPress={() => handleNavigate('TopicsDetails', { topic })}
+            style={styles.horizontalCardTopics}
+          />
+        ))}
+      </ScrollView>
+
+      <View style={styles.rowView}>
+        <Text style={styles.rowTitle}>Services</Text>
+      </View>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.mb_2} contentContainerStyle={styles.justifyCenter}>
+        <Card type="vertical" title="Biological Values" content="test" onPress={() => handleNavigate('BiologicalValues')} />
+        <Card type="vertical" title="Clinical Calculator" content="" onPress={() => handleNavigate('CategoryListScreen')} />
+        <Card type="vertical" title="Medicine" content="" onPress={() => handleNavigate('Categories')} />
+      </ScrollView>
+      </View>
   );
 }
+
+const { width, height } = Dimensions.get('window');  
+const vh = height / 100;  
+const vw = width / 100;   
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    padding: 20,
+    // alignItems: 'center',
     justifyContent: 'center',
+  },
+  justifyCenter: {
+    alignItems: 'center',
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    marginTop: 30,
   },
   separator: {
     marginVertical: 30,
     height: 1,
     width: '80%',
   },
+
+  rowView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 2 * vh,
+  },
+  rowTitle: {
+    fontSize: 2 * vh,
+    fontWeight: 'bold',
+    marginBottom: 1 * vh,
+    margin: 1 * vh,
+  },
+  horizontalCardTopics: {
+    width: 30 * vw,
+    height: 15 * vh,  
+    margin: 1 * vh,
+    padding: 1 * vh,
+    backgroundColor: '#004F98',
+    borderRadius: 1 * vh,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 3,
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: { height: 2, width: 0 },
+  },
+  mb_2: {
+    marginBottom: 2 * vh,
+  },
 });
+
+function getGreetingMessage(hours = new Date().getHours()): string {
+  let greetingMessage: string;
+  switch (true) {
+    case (hours >= 5 && hours < 12):
+      greetingMessage = 'Good morning';
+      break;
+    case (hours >= 12 && hours < 18):
+      greetingMessage = 'Good afternoon';
+      break;
+    case (hours >= 18 || hours < 5):
+      greetingMessage = 'Good evening';
+      break;
+    default:
+      greetingMessage = 'Hello';
+      break;
+  }
+  return greetingMessage;
+}
+
+function handleNavigate(input: string): void  {
+  console.log(`Navigating to: ${input}`);
+};
