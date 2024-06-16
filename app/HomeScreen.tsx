@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { ScrollView, StyleSheet, Dimensions, Button } from 'react-native';
+import { ScrollView, StyleSheet, Dimensions } from 'react-native';
+import { NavigationProp } from '@react-navigation/native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import Card from '@/components/Card';
+import MoreButton from '@/components/MoreButton';
 import { Text, View } from '@/components/Themed';
 
 import topicsData from '@/assets/temp_data/topicsData.json';
-import MoreButton from '@/components/MoreButton';
-
-import { NavigationProp } from '@react-navigation/native';
 
 type HomeScreenProps = {
   navigation: NavigationProp<any>;
@@ -20,7 +18,6 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
       <Text style={styles.title}>
         {getGreetingMessage()}, Dr. Smith</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      {/* <EditScreenInfo path="app/(tabs)/index.tsx" /> */}
       
       <View style={styles.rowView}>
         <Text style={styles.rowTitle}>Quick Access</Text>

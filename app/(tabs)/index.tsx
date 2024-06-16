@@ -31,7 +31,7 @@ const vw = width / 100;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
     // alignItems: 'center',
     justifyContent: 'center',
   },
