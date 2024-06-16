@@ -1,53 +1,26 @@
+import * as React from 'react';
 import { ScrollView, StyleSheet, Dimensions } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import Card from '@/components/Card';
 import { Text, View } from '@/components/Themed';
 
-import topicsData from '@/assets/temp_data/topicsData.json';
-import MoreButton from '@/components/MoreButton';
+import HomeScreen from '../HomeScreen';
+import BiologicalValues from '../BiologicalValues/BiologicalValues';
+import ClinicalCalculators from '../ClinicalCalculators/ClinicalCalculators';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function HomeScreen() {
+const HomeStack = createNativeStackNavigator();
+
+export default function HomeNavigator() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        {getGreetingMessage()}, Dr. Smith</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      {/* <EditScreenInfo path="app/(tabs)/index.tsx" /> */}
-      
-      <View style={styles.rowView}>
-        <Text style={styles.rowTitle}>Quick Access</Text>
-        <MoreButton
-          title="See All"
-          onPress={() => (1)}
-          // onPress={() => handleNavigate(
-          //   'Topics',
-          //   { topics: topicsData }
-          // )}
-        />
-      </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.mb_2}>
-        {topicsData.slice(0, 5).map((topic, idx) => (
-          <Card
-            key={idx}
-            type="horizontal"
-            title={topic.name}
-            // onPress={() => handleNavigate('TopicsDetails', { topic })}
-            style={styles.horizontalCardTopics}
-          />
-        ))}
-      </ScrollView>
-
-      <View style={styles.rowView}>
-        <Text style={styles.rowTitle}>Services</Text>
-      </View>
-      <ScrollView showsVerticalScrollIndicator={false} style={styles.mb_2} contentContainerStyle={styles.justifyCenter}>
-        <Card type="vertical" title="Biological Values" content="test" onPress={() => handleNavigate('BiologicalValues')} />
-        <Card type="vertical" title="Clinical Calculator" content="" onPress={() => handleNavigate('CategoryListScreen')} />
-        <Card type="vertical" title="Medicine" content="" onPress={() => handleNavigate('Categories')} />
-      </ScrollView>
-      </View>
+    // <NavigationContainer>
+      <HomeStack.Navigator>
+        <HomeStack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <HomeStack.Screen name="BiologicalValues" component={BiologicalValues} />
+        <HomeStack.Screen name="ClinicalCalculators" component={ClinicalCalculators} />
+      </HomeStack.Navigator>
+    // </NavigationContainer>
   );
 }
 
