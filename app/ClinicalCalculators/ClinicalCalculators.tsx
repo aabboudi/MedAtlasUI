@@ -47,6 +47,7 @@ export default function ClinicalCalculators() {
             title={item.part}
             content={item.description}
             style={styles.card}
+            // onPress={() => navigation.navigate('BiologicalValues')}
           />
         ))}
       </View>

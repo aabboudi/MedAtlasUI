@@ -47,8 +47,8 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
       </View>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.mb_2} contentContainerStyle={styles.justifyCenter}>
         <Card type="vertical" title="Biological Values" content="test" onPress={() => navigation.navigate('BiologicalValues')} />
-        <Card type="vertical" title="Clinical Calculator" content="" onPress={() => navigation.navigate('ClinicalCalculators')} />
-        <Card type="vertical" title="Medicine" content="" onPress={() => handleNavigate('Categories')} />
+        <Card type="vertical" title="Clinical Calculator" content="" onPress={() => navigation.navigate('ClinicalCalculatorsNavigator')} />
+        <Card type="vertical" title="Medicine" content="" onPress={() => navigation.navigate('MedsNavigator')} />
       </ScrollView>
       </View>
   );
