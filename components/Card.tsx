@@ -10,44 +10,50 @@ const vh = height / 100;
 const vw = width / 100;
 
 interface CardProps {
-  type: 'vertical' | 'horizontal';
   title?: string;
   content?: string;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
 }
 
-const Card: React.FC<CardProps> = ({ type, title, content, onPress, style }) => {
-  const cardStyle = type === 'vertical' ? styles.verticalCard : (style || styles.horizontalCardTopics);
-  const titleStyle = type === 'vertical' ? styles.verticalTitle : styles.horizontalTitle;
-  const descStyle = type === 'vertical' ? styles.verticalDesc : styles.desc;
+const HorizontalCard: React.FC<CardProps> = ({ title, content, onPress, style }) => {
   const colorScheme = useColorScheme();
-  const textColor = Colors[colorScheme ?? 'light'].tint;
+  const textColor = Colors[colorScheme ?? 'light'].background;
 
   return (
-    <TouchableOpacity style={[cardStyle, {
-      borderWidth: 2,
-      borderColor: '#333',
-      borderRadius: 10,
-    }]} onPress={onPress} activeOpacity={0.75}>
+    <TouchableOpacity style={[styles.horizontalCard, style]} onPress={onPress} activeOpacity={0.75}>
       <View style={styles.cardContent}>
         <View style={styles.textContent}>
-          {title && <Text style={[titleStyle, {color: textColor}]}>{title}</Text>}
-          {content && <Text style={descStyle}>{content}</Text>}
+          {title && <Text style={[styles.horizontalTitle, { color: textColor }]}>{title}</Text>}
+          {content && <Text style={styles.desc}>{content}</Text>}
         </View>
-        {type === 'vertical' && (
-          <Icon name="chevron-right" size={30} color="#4A90E2" style={styles.arrowIcon} />
-        )}
       </View>
     </TouchableOpacity>
   );
 };
-const textColor = "0000ff";
+
+const VerticalCard: React.FC<CardProps> = ({ title, content, onPress, style }) => {
+  const colorScheme = useColorScheme();
+  const textColor = Colors[colorScheme ?? 'light'].text;
+
+  return (
+    <TouchableOpacity style={[styles.verticalCard, style]} onPress={onPress} activeOpacity={0.75}>
+      <View style={styles.cardContent}>
+        <View style={styles.textContent}>
+          {title && <Text style={[styles.verticalTitle, { color: textColor }]}>{title}</Text>}
+          {content && <Text style={styles.verticalDesc}>{content}</Text>}
+        </View>
+        <Icon name="chevron-right" size={30} color="#4A90E2" style={styles.arrowIcon} />
+      </View>
+    </TouchableOpacity>
+  );
+};
+
 const styles = StyleSheet.create({
-  horizontalCardTopics: {
+  horizontalCard: {
     width: 30 * vw,
     height: 8 * vh,
-    maxHeight: 10,
+    // maxHeight: 80,
     margin: 1 * vh,
     padding: 1 * vh,
     backgroundColor: '#004F98',
@@ -65,18 +71,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: 85 * vw,
-    maxWidth: 100*vw - 40,
+    maxWidth: 100 * vw - 40,
     height: 11 * vh,
     padding: 8,
     marginHorizontal: 1.3 * vw,
     marginVertical: 1 * vh,
-    // backgroundColor: '#FFFFFF',
     borderRadius: 8,
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    shadowColor: '#000',
-    shadowOffset: { height: 0.2 * vh, width: 0 },
-    elevation: 4,
+    // shadowOpacity: 0.3,
+    // shadowRadius: 4,
+    // shadowColor: '#fff',
+    // shadowOffset: { height: 0.2 * vh, width: 0 },
+    // elevation: 4,
+    borderWidth: 2,
+    borderColor: '#333',
   },
   horizontalTitle: {
     fontSize: 13,
@@ -115,4 +122,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Card;
+export { HorizontalCard, VerticalCard };

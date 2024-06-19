@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 import { Text, View } from '@/components/Themed';
-import Card from '@/components/Card'; // Assuming your Card component is correctly imported
+import { HorizontalCard } from '@/components/Card'; // Assuming your Card component is correctly imported
 
 // Import your JSON data (replace with correct path)
 import atctree from '@/assets/temp_data/atctree.json';
@@ -31,37 +31,36 @@ export default function Meds() {
   }, []);
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.container}>
-        {categories.map((category, index) => (
-          <Card
-            key={index}
-            type="vertical"
-            title={category.name}
-            // content={Object.values(category.subcategories).join(", ")}
-            onPress={() => {
-              // navigation.navigate('MedsSubCategory', { category }); // Navigate to SubcategoriesScreen with category data
-            }}
-            style={styles.card}
-          />
-        ))}
-      </View>
-    </ScrollView>
+    <FlatList
+      data={categories}
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={({ item }) => (
+        <HorizontalCard
+          title={item.name}
+          onPress={() => {
+            // navigation.navigate('MedsSubCategory', { category: item }); // Navigate to SubcategoriesScreen with category data
+          }}
+          style={styles.card}
+        />
+      )}
+      contentContainerStyle={styles.scrollContainer}
+      numColumns={2}
+      columnWrapperStyle={styles.row}
+    />
   );
 }
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
+    paddingVertical: 16,
   },
-  container: {
-    flex: 1,
-    alignItems: 'center',
+  row: {
+    justifyContent: 'space-between',
+    marginHorizontal: 8,
   },
   card: {
-    marginBottom: 16,
+    flex: 1,
+    margin: 8,
+    height: 120,
   },
 });

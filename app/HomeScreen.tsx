@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ScrollView, StyleSheet, Dimensions } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 
-import Card from '@/components/Card';
+import { HorizontalCard, VerticalCard } from '@/components/Card';
 import MoreButton from '@/components/MoreButton';
 import { Text, View } from '@/components/Themed';
 
@@ -32,9 +32,8 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.mb_2}>
         {topicsData.slice(0, 5).map((topic, idx) => (
-          <Card
+          <HorizontalCard
             key={idx}
-            type="horizontal"
             title={topic.name}
             // onPress={() => handleNavigate('TopicsDetails', { topic })}
             style={styles.horizontalCardTopics}
@@ -42,13 +41,15 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
         ))}
       </ScrollView>
 
+      <View style={styles.separator} lightColor="#ccc" darkColor="rgba(255,255,255,0.1)" />
+
       <View style={styles.rowView}>
         <Text style={styles.rowTitle}>Services</Text>
       </View>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.mb_2} contentContainerStyle={styles.justifyCenter}>
-        <Card type="vertical" title="Biological Values" content="test" onPress={() => navigation.navigate('BiologicalValues')} />
-        <Card type="vertical" title="Clinical Calculator" content="" onPress={() => navigation.navigate('ClinicalCalculatorsNavigator')} />
-        <Card type="vertical" title="Medicine" content="" onPress={() => navigation.navigate('MedsNavigator')} />
+        <VerticalCard title="Biological Values" content="Reports and Charts" onPress={() => navigation.navigate('BiologicalValues')} />
+        <VerticalCard title="Clinical Calculator" content="Metric System" onPress={() => navigation.navigate('ClinicalCalculatorsNavigator')} />
+        <VerticalCard title="Medicine" content="ATC Classified" onPress={() => navigation.navigate('MedsNavigator')} />
       </ScrollView>
       </View>
   );
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: '100%',
   },
 
   rowView: {

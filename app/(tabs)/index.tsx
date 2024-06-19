@@ -16,9 +16,7 @@ export default function HomeNavigator() {
   return (
     // <NavigationContainer>
       <HomeStack.Navigator
-        screenOptions={{
-          headerTitleAlign: 'center', // Default option for all screens
-        }}
+        screenOptions={{ headerTitleAlign: 'center', }}
       >
         <HomeStack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <HomeStack.Screen name="BiologicalValues" component={BiologicalValues} />

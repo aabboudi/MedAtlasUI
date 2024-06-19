@@ -28,10 +28,11 @@ export default function TabLayout() {
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
         tabBarStyle: {
-          backgroundColor: 'transparent',
+          // backgroundColor: 'transparent',
           height: 60,
-          marginVertical: 15,
+          marginTop: 0,
           paddingTop: 10,
+          paddingBottom: 10,
         },
       }}>
       <Tabs.Screen

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import fetchDataAnatomy, { ApiResponse } from '@/assets/fetchers/fetchDataAnatomy';
-import Card from '@/components/Card';
+import { VerticalCard } from '@/components/Card';
 
 export default function ClinicalCalculators() {
   const [data, setData] = useState<ApiResponse[]>([]);
@@ -41,9 +41,8 @@ export default function ClinicalCalculators() {
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
         {data.map((item) => (
-          <Card
+          <VerticalCard
             key={item._id}
-            type="vertical"
             title={item.part}
             content={item.description}
             style={styles.card}

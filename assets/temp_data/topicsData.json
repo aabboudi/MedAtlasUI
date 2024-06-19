@@ -1,42 +1,42 @@
 [
   {
     "id": 1,
-    "name": "Cardiology",
+    "name": "Cardio",
     "description": "Cardiology is a medical specialty dedicated to diagnosing, treating, and preventing diseases related to the heart and blood vessels. Cardiologists are experts in dealing with disorders such as heart attacks (myocardial infarctions), heart failure, arrhythmias (abnormal heart rhythms), and hypertension (high blood pressure). They conduct diagnostic tests like electrocardiograms (EKGs), echocardiograms, and exercise stress tests to assess heart health. Cardiologists often treat patients with heart disease by prescribing medications, recommending lifestyle changes, and performing procedures like angioplasty, where stents are placed to open up blocked arteries. More complex cases may require surgical interventions such as coronary artery bypass grafting (CABG) or heart valve repair and replacement. Preventative cardiology focuses on minimizing future risks through interventions tailored to individual patient profiles, emphasizing the importance of heart health and the impact of factors like cholesterol levels, exercise, diet, and smoking."
   },
   {
     "id": 2,
-    "name": "Neurology",
+    "name": "Neuro",
     "description": "Neurology focuses on the study and treatment of disorders of the nervous system, which includes the brain, spinal cord, and all peripheral nerves. Neurologists diagnose and treat neurological disorders such as epilepsy, stroke, multiple sclerosis (MS), Parkinson's disease, Alzheimer's disease, and migraine headaches. Using tools like MRI and CT scans, neurologists can visualize the nervous system's structure and function to pinpoint the source of a patient's symptoms. Treatments in neurology include medications, physical therapy, and sometimes surgery, depending on the condition. For example, neurologists manage epilepsy primarily through medications but also use surgical techniques in drug-resistant cases. They also work closely with other specialists to manage complex conditions that overlap with other fields, such as neurosurgery and psychiatry, providing comprehensive care for patients with multifaceted diagnoses."
   },
   {
     "id": 3,
-    "name": "Gastroenterology",
+    "name": "Gastroentero",
     "description": "Gastroenterology is the branch of medicine focused on the digestive system and its disorders. Diseases affecting the gastrointestinal tract, which include the organs from the mouth to the anus, along the alimentary canal, are the focus of this specialty. Gastroenterologists diagnose and treat conditions such as gastroesophageal reflux disease (GERD), peptic ulcer disease, irritable bowel syndrome (IBS), inflammatory bowel diseases (IBD) like Crohn's and ulcerative colitis, hepatitis, and pancreatitis. They perform diagnostic procedures including endoscopy, where a flexible tube with a camera inspects the gastrointestinal tract, and colonoscopy, used to examine the colon and rectum. Treatments may involve medication, dietary changes, and in some cases, surgery. Gastroenterologists also work on the prevention of gastrointestinal cancers, management of liver diseases, and treatment of gastrointestinal emergencies like bleeding."
   },
   {
     "id": 4,
-    "name": "Dermatology",
+    "name": "Dermato",
     "description": "Dermatology is the branch of medicine dealing with the skin, the largest organ of the body; a dermatologist treats diseases, in the widest sense, and some cosmetic problems of the skin, scalp, hair, and nails. Key areas of this specialty include acne, eczema, psoriasis, skin infections, and skin cancers. Dermatologists use treatments ranging from topical creams and medications to more advanced procedures like cryotherapy (freezing off warts and skin lesions), laser treatments for hair removal and skin resurfacing, and surgical interventions to remove skin cancer. Cosmetic dermatology has grown significantly, with techniques such as Botox injections, dermal fillers, and chemical peels helping patients achieve desired aesthetic results. Dermatologists also specialize in diagnosing and treating hair loss, nail disorders, and managing chronic conditions that manifest through skin symptoms."
   },
   {
     "id": 5,
-    "name": "Endocrinology",
+    "name": "Endocrino",
     "description": "Endocrinology is the study of the endocrine system, the system that controls hormones. Endocrinologists treat conditions related to the glands and the hormones they produce. They deal with metabolism, or the biochemical processes that make your body work, including how your body changes food into energy and how it grows. They may work with adults or kids. When they work with kids, they're called pediatric endocrinologists. They’re experts in treating diabetes, a common disease that affects millions of people worldwide, by helping to manage blood sugar levels through insulin and other medications. Other disorders treated by endocrinologists include thyroid diseases, such as hypothyroidism and hyperthyroidism, adrenal disorders like Addison’s disease and Cushing's syndrome, bone metabolism disorders like osteoporosis, and pituitary gland disorders that can affect growth and reproductive health. Treatment often involves long-term management and can include hormone replacement therapies and other medications."
   },
   {
     "id": 6,
-    "name": "Hematology",
+    "name": "Hemato",
     "description": "Hematology is the branch of medicine concerned with the study of the cause, prognosis, treatment, and prevention of diseases related to blood. Hematologists focus on disorders affecting blood cells, bone marrow, blood vessels, spleen, and the proteins involved in bleeding and clotting (hemostasis and thrombosis). Some of the diseases treated by hematologists include iron deficiency anemia, hemophilia, sickle cell disease, leukemia, lymphoma, and myeloma. Diagnostic tests in hematology include complete blood counts (CBC) and bone marrow biopsies. Treatments vary from iron supplements for anemia to more complex procedures like bone marrow transplants for leukemia or lymphoma patients. Hematologists often work closely with oncologists, especially in cancers of the blood and bone marrow, such as leukemia."
   },
   {
     "id": 7,
-    "name": "Nephrology",
+    "name": "Nephro",
     "description": "Nephrology is a specialty of internal medicine that focuses on kidney care and treating diseases of the kidneys. The kidneys are essential for regulating blood pressure, electrolytes, and metabolizing medications in the body. Nephrologists treat conditions such as acute kidney injury, chronic kidney disease, kidney stones, high blood pressure, and fluid and electrolyte imbalances. They use diagnostic tests like serum creatinine, urea, and electrolytes levels, along with urine analysis and ultrasound of the kidneys, to diagnose kidney problems. Treatments may include medication, changes in diet, dialysis for end-stage kidney disease, and kidney transplantation. Nephrologists work closely with patients to manage kidney function and slow disease progression through a combination of medical treatments and lifestyle adjustments."
   },
   {
     "id": 8,
-    "name": "Oncology",
+    "name": "Onco",
     "description": "Oncology is the field of medicine that is devoted to cancer. The term 'oncology' literally means 'the study of tumors.' Medical oncology focuses on the diagnosis, treatment, and prevention of cancer. An oncologist’s role is to manage the care and treatment of a cancer patient after diagnosis. This involves the use of chemotherapy, hormonal therapy, biological therapy, and targeted therapy to destroy cancer cells. Oncologists are also involved in clinical trials and research aimed at improving treatment success rates and finding cures for different types of cancer. Palliative care, aimed at improving the quality of life of patients and their families, is an essential aspect of oncology. Oncologists work with patients to minimize the side effects of treatment and handle complications as they arise."
   },
   {
