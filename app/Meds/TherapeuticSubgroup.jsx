@@ -1,28 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import { VerticalCard } from '@/components/Card';
 import { useNavigation } from '@react-navigation/native';
 
-interface Subcategories {
-  [key: string]: string;
-}
-
-type ParamList = {
-  'Therapeutic Subgroup': {
-    subcategories: Subcategories;
-  };
-};
-
 const TherapeuticSubgroup = () => {
-  const route = useRoute<RouteProp<ParamList, 'Therapeutic Subgroup'>>();
+  const route = useRoute();
   const { subcategories } = route.params;
-
   const navigation = useNavigation();
-
-  const navigateToMedications = (ATCCode: string) => {
-    navigation.navigate('Medications', { ATCCode });
-  };
 
   return (
     <View style={styles.container}>
@@ -32,13 +17,10 @@ const TherapeuticSubgroup = () => {
           <VerticalCard
             title={item.key}
             content={item.value}
-            onPress={() => navigateToMedications(item.key)}
-            // style={styles.card}
+            onPress={() => 
+              navigation.navigate('Medications', { ATCCode: item.key })
+            }
           />
-          // <View style={styles.item}>
-          //   <Text>{item.key}</Text>
-          //   <Text>{item.value}</Text>
-          // </View>
         )}
         keyExtractor={(item, index) => index.toString()}
       />

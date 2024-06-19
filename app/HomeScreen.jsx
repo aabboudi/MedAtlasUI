@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ScrollView, StyleSheet, Dimensions } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 
@@ -8,26 +8,20 @@ import { Text, View } from '@/components/Themed';
 
 import topicsData from '@/assets/temp_data/topicsData.json';
 
-type HomeScreenProps = {
-  navigation: NavigationProp<any>;
-};
-
-export default function HomeScreen({ navigation }: HomeScreenProps) {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        {getGreetingMessage()}, Dr. Smith</Text>
+        {getGreetingMessage()}, Dr. Smith
+      </Text>
       <View style={styles.separator} lightColor="#ccc" darkColor="rgba(255,255,255,0.1)" />
       
       <View style={styles.rowView}>
         <Text style={styles.rowTitle}>Quick Access</Text>
         <MoreButton
           title="See All"
-          onPress={() => (1)}
-          // onPress={() => handleNavigate(
-          //   'Topics',
-          //   { topics: topicsData }
-          // )}
+          onPress={() => handleNavigate('Topics')}
+          // onPress={() => handleNavigate('Topics', { topics: topicsData })}
         />
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.mb_2}>
@@ -51,19 +45,18 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
         <VerticalCard title="Clinical Calculator" content="Metric System" onPress={() => navigation.navigate('ClinicalCalculatorsNavigator')} />
         <VerticalCard title="Medicine" content="ATC Classified" onPress={() => navigation.navigate('MedsNavigator')} />
       </ScrollView>
-      </View>
+    </View>
   );
 }
 
-const { width, height } = Dimensions.get('window');  
-const vh = height / 100;  
-const vw = width / 100;   
+const { width, height } = Dimensions.get('window');
+const vh = height / 100;
+const vw = width / 100;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    // alignItems: 'center',
     justifyContent: 'center',
   },
   justifyCenter: {
@@ -79,7 +72,6 @@ const styles = StyleSheet.create({
     height: 1,
     width: '100%',
   },
-
   rowView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -97,25 +89,22 @@ const styles = StyleSheet.create({
   },
 });
 
-function getGreetingMessage(hours = new Date().getHours()): string {
-  let greetingMessage: string;
+function getGreetingMessage(hours = new Date().getHours()) {
+  let greetingMessage;
   switch (true) {
-    case (hours >= 5 && hours < 12):
+    case hours >= 5 && hours < 12:
       greetingMessage = 'Good morning';
       break;
-    case (hours >= 12 && hours < 18):
+    case hours >= 12 && hours < 18:
       greetingMessage = 'Good afternoon';
       break;
-    case (hours >= 18 || hours < 5):
-      greetingMessage = 'Good evening';
-      break;
     default:
-      greetingMessage = 'Hello';
+      greetingMessage = 'Good evening';
       break;
   }
   return greetingMessage;
 }
 
-function handleNavigate(input: string): void  {
+function handleNavigate(input) {
   console.log(`Navigating to: ${input}`);
-};
+}

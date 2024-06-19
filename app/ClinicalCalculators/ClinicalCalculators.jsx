@@ -1,14 +1,13 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { Text, View } from '@/components/Themed';
-import fetchDataAnatomy, { ApiResponse } from '@/assets/fetchers/fetchDataAnatomy';
+import fetchDataAnatomy from '@/assets/fetchers/fetchDataAnatomy';
 import { VerticalCard } from '@/components/Card';
 
 export default function ClinicalCalculators() {
-  const [data, setData] = useState<ApiResponse[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const loadApiData = async () => {

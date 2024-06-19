@@ -6,10 +6,8 @@ const ClinicalCalculatorStack = createNativeStackNavigator();
 
 export default function ClinicalCalculatorsNavigator() {
   return (
-    // <NavigationContainer>
-      <ClinicalCalculatorStack.Navigator initialRouteName='Clinical Calculators'>
-        <ClinicalCalculatorStack.Screen name="Clinical Calculators" component={ClinicalCalculators} />
-      </ClinicalCalculatorStack.Navigator>
-    // </NavigationContainer>
+    <ClinicalCalculatorStack.Navigator initialRouteName='Clinical Calculators'>
+      <ClinicalCalculatorStack.Screen name="Clinical Calculators" component={ClinicalCalculators} />
+    </ClinicalCalculatorStack.Navigator>
   );
 }

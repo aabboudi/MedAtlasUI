@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Dimensions } from 'react-native';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -9,14 +8,7 @@ const { width, height } = Dimensions.get('window');
 const vh = height / 100;
 const vw = width / 100;
 
-interface CardProps {
-  title?: string;
-  content?: string;
-  onPress?: () => void;
-  style?: StyleProp<ViewStyle>;
-}
-
-const HorizontalCard: React.FC<CardProps> = ({ title, content, onPress, style }) => {
+const HorizontalCard = ({ title, content, onPress, style }) => {
   const colorScheme = useColorScheme();
   const textColor = Colors[colorScheme ?? 'light'].background;
 
@@ -32,7 +24,7 @@ const HorizontalCard: React.FC<CardProps> = ({ title, content, onPress, style })
   );
 };
 
-const VerticalCard: React.FC<CardProps> = ({ title, content, onPress, style }) => {
+const VerticalCard = ({ title, content, onPress, style }) => {
   const colorScheme = useColorScheme();
   const textColor = Colors[colorScheme ?? 'light'].text;
 
@@ -53,7 +45,6 @@ const styles = StyleSheet.create({
   horizontalCard: {
     width: 30 * vw,
     height: 8 * vh,
-    // maxHeight: 80,
     margin: 1 * vh,
     padding: 1 * vh,
     backgroundColor: '#004F98',
@@ -77,11 +68,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 1.3 * vw,
     marginVertical: 1 * vh,
     borderRadius: 8,
-    // shadowOpacity: 0.3,
-    // shadowRadius: 4,
-    // shadowColor: '#fff',
-    // shadowOffset: { height: 0.2 * vh, width: 0 },
-    // elevation: 4,
     borderWidth: 2,
     borderColor: '#333',
   },

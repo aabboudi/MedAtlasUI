@@ -16,7 +16,7 @@ export default function Search() {
       <Text style={styles.title}>Search</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/search.tsx" />
-      <Link href="/bio_values" asChild>
+      <Link href="/modal" asChild>
         <Pressable>
           {({ pressed }) => (
             <FontAwesome

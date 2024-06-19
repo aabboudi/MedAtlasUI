@@ -1,5 +1,3 @@
-// AnatomicalSubgroup.tsx
-
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -7,30 +5,17 @@ import { Text, View } from '@/components/Themed';
 import { HorizontalCard } from '@/components/Card';
 import atctree from '@/assets/temp_data/atctree.json';
 
-interface Subcategories {
-  [key: string]: string;
-}
-
-interface Category {
-  name: string;
-  subcategories: Subcategories;
-}
-
 const AnatomicalSubgroup = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState([]);
   const navigation = useNavigation();
 
   useEffect(() => {
-    const categoriesArray: Category[] = Object.keys(atctree).map(key => ({
-      name: atctree[key as keyof typeof atctree].name,
-      subcategories: atctree[key as keyof typeof atctree].subcategories
+    const categoriesArray = Object.keys(atctree).map(key => ({
+      name: atctree[key].name,
+      subcategories: atctree[key].subcategories
     }));
     setCategories(categoriesArray);
   }, []);
-
-  const navigateToTherapeuticSubgroup = (subcategories: Subcategories) => {
-    navigation.navigate('Therapeutic Subgroup', { subcategories });
-  };
 
   return (
     <FlatList
@@ -39,7 +24,9 @@ const AnatomicalSubgroup = () => {
       renderItem={({ item }) => (
         <HorizontalCard
           title={item.name}
-          onPress={() => navigateToTherapeuticSubgroup(item.subcategories)}
+          onPress={() =>
+            navigation.navigate('Therapeutic Subgroup', { subcategories: item.subcategories })
+          }
           style={styles.card}
         />
       )}
