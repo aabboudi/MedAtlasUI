@@ -1,13 +1,12 @@
+// AnatomicalSubgroup.tsx
+
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
+import { useNavigation } from '@react-navigation/native';
 import { Text, View } from '@/components/Themed';
-import { HorizontalCard } from '@/components/Card'; // Assuming your Card component is correctly imported
-
-// Import your JSON data (replace with correct path)
+import { HorizontalCard } from '@/components/Card';
 import atctree from '@/assets/temp_data/atctree.json';
 
-// Define the type of your JSON structure
 interface Subcategories {
   [key: string]: string;
 }
@@ -17,18 +16,21 @@ interface Category {
   subcategories: Subcategories;
 }
 
-export default function Meds() {
-  const [categories, setCategories] = useState<Category[]>([]); // State to hold categories
-  const navigation = useNavigation(); // Initialize navigation
+const AnatomicalSubgroup = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
-    // Convert JSON object into array of categories
     const categoriesArray: Category[] = Object.keys(atctree).map(key => ({
       name: atctree[key as keyof typeof atctree].name,
       subcategories: atctree[key as keyof typeof atctree].subcategories
     }));
     setCategories(categoriesArray);
   }, []);
+
+  const navigateToTherapeuticSubgroup = (subcategories: Subcategories) => {
+    navigation.navigate('Therapeutic Subgroup', { subcategories });
+  };
 
   return (
     <FlatList
@@ -37,9 +39,7 @@ export default function Meds() {
       renderItem={({ item }) => (
         <HorizontalCard
           title={item.name}
-          onPress={() => {
-            // navigation.navigate('MedsSubCategory', { category: item }); // Navigate to SubcategoriesScreen with category data
-          }}
+          onPress={() => navigateToTherapeuticSubgroup(item.subcategories)}
           style={styles.card}
         />
       )}
@@ -48,7 +48,7 @@ export default function Meds() {
       columnWrapperStyle={styles.row}
     />
   );
-}
+};
 
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -64,3 +64,5 @@ const styles = StyleSheet.create({
     height: 120,
   },
 });
+
+export default AnatomicalSubgroup;

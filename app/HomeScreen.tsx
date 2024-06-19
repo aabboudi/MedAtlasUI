@@ -17,7 +17,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
     <View style={styles.container}>
       <Text style={styles.title}>
         {getGreetingMessage()}, Dr. Smith</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={styles.separator} lightColor="#ccc" darkColor="rgba(255,255,255,0.1)" />
       
       <View style={styles.rowView}>
         <Text style={styles.rowTitle}>Quick Access</Text>
@@ -36,7 +36,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
             key={idx}
             title={topic.name}
             // onPress={() => handleNavigate('TopicsDetails', { topic })}
-            style={styles.horizontalCardTopics}
+            // style={styles.horizontalCardTopics}
           />
         ))}
       </ScrollView>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginTop: 30,
+    marginTop: 42,
   },
   separator: {
     marginVertical: 30,
@@ -91,21 +91,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 1 * vh,
     margin: 1 * vh,
-  },
-  horizontalCardTopics: {
-    width: 30 * vw,
-    height: 15 * vh,  
-    margin: 1 * vh,
-    padding: 1 * vh,
-    backgroundColor: '#004F98',
-    borderRadius: 1 * vh,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 3,
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    shadowColor: '#000',
-    shadowOffset: { height: 2, width: 0 },
   },
   mb_2: {
     marginBottom: 2 * vh,
