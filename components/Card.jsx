@@ -33,7 +33,7 @@ const VerticalCard = ({ title, content, onPress, style }) => {
       <View style={styles.cardContent}>
         <View style={styles.textContent}>
           {title && <Text style={[styles.verticalTitle, { color: textColor }]}>{title}</Text>}
-          {content && <Text style={styles.verticalDesc}>{content}</Text>}
+          {content && <Text style={[styles.verticalDesc, { color: textColor }]}>{content}</Text>}
         </View>
         <Icon name="chevron-right" size={30} color="#4A90E2" style={styles.arrowIcon} />
       </View>

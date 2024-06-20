@@ -41,9 +41,28 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.rowTitle}>Services</Text>
       </View>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.mb_2} contentContainerStyle={styles.justifyCenter}>
-        <VerticalCard title="Biological Values" content="Reports and Charts" onPress={() => navigation.navigate('BiologicalValues')} />
-        <VerticalCard title="Clinical Calculator" content="Metric System" onPress={() => navigation.navigate('ClinicalCalculatorsNavigator')} />
-        <VerticalCard title="Medicine" content="ATC Classified" onPress={() => navigation.navigate('MedsNavigator')} />
+        <VerticalCard
+          title="Biological Values"
+          content="Reports and Charts"
+          onPress={() =>
+            navigation.navigate('BiologicalValues')
+          }
+        />
+
+        <VerticalCard
+          title="Clinical Calculator"
+          content="Metric System"
+          onPress={() =>
+            navigation.navigate('ClinicalCalculatorsNavigator')
+          }
+        />
+        <VerticalCard
+          title="Medicine"
+          content="ATC Classified"
+          onPress={() =>
+            navigation.navigate('MedsNavigator')
+          }
+        />
       </ScrollView>
     </View>
   );
