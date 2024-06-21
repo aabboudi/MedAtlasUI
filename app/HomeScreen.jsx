@@ -24,7 +24,7 @@ export default function HomeScreen({ navigation }) {
           // onPress={() => handleNavigate('Topics', { topics: topicsData })}
         />
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.mb_2}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {topicsData.slice(0, 5).map((topic, idx) => (
           <HorizontalCard
             key={idx}
@@ -40,7 +40,7 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.rowView}>
         <Text style={styles.rowTitle}>Services</Text>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false} style={styles.mb_2} contentContainerStyle={styles.justifyCenter}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.justifyCenter}>
         <VerticalCard
           title="Biological Values"
           content="Reports and Charts"
@@ -57,7 +57,7 @@ export default function HomeScreen({ navigation }) {
           }
         />
         <VerticalCard
-          title="Medicine"
+          title="Medications"
           content="ATC Classified"
           onPress={() =>
             navigation.navigate('MedsNavigator')
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   justifyCenter: {
     alignItems: 'center',
@@ -102,9 +102,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 1 * vh,
     margin: 1 * vh,
-  },
-  mb_2: {
-    marginBottom: 2 * vh,
   },
 });
 

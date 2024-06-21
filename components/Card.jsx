@@ -16,7 +16,7 @@ const HorizontalCard = ({ title, content, onPress, style }) => {
     <TouchableOpacity style={[styles.horizontalCard, style]} onPress={onPress} activeOpacity={0.75}>
       <View style={styles.cardContent}>
         <View style={styles.textContent}>
-          {title && <Text style={[styles.horizontalTitle, { color: textColor }]}>{title}</Text>}
+          {title && <Text style={styles.horizontalTitle}>{title}</Text>}
           {content && <Text style={styles.desc}>{content}</Text>}
         </View>
       </View>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     width: 30 * vw,
     height: 8 * vh,
     margin: 1 * vh,
-    padding: 1 * vh,
+    padding: .5 * vh,
     backgroundColor: '#004F98',
     borderRadius: 1 * vh,
     justifyContent: 'center',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 85 * vw,
     maxWidth: 100 * vw - 40,
-    height: 11 * vh,
+    minHeight: 11 * vh,
     padding: 8,
     marginHorizontal: 1.3 * vw,
     marginVertical: 1 * vh,
