@@ -1,50 +1,95 @@
-import { StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
-import { Pressable } from 'react-native';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
+import React, { useState, useEffect } from 'react';
+import { View, ScrollView, StyleSheet, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; 
+import SearchBar from '@/components/searchbar';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { VerticalCard } from '@/components/Card'; 
+import topicsData from '@/assets/temp_data/topicsData.json';
+import atcTree from '@/assets/temp_data/atctree.json';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+const SearchStack = createNativeStackNavigator();
+
+
 
 export default function Search() {
-  const colorScheme = useColorScheme();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [combinedData, setCombinedData] = useState([]);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const loadAllData = () => {
+      const flattenedAtcTree = flattenAtcTree(atcTree);
+      const combined = [
+        ...topicsData.map(item => ({ ...item, type: 'Topic', searchKey: item.name })),
+        ...flattenedAtcTree
+      ];
+      setCombinedData(combined);
+    };
+    loadAllData();
+  }, []);
+
+  const handleSearchTextChange = (text) => {
+    setSearchQuery(text.toLowerCase());
+  };
+
+  const flattenAtcTree = (tree) => {
+    const flattened = [];
+    Object.keys(tree).forEach((key) => {
+      const category = tree[key];
+      flattened.push({ type: 'ATC Category', searchKey: category.name });
+      Object.keys(category.subcategories).forEach((subKey) => {
+        flattened.push({ type: 'ATC Subcategory', searchKey: category.subcategories[subKey] });
+      });
+    });
+    return flattened;
+  };
+
+  const filteredData = combinedData.filter(item =>
+    item.searchKey.toLowerCase().includes(searchQuery)
+  );
+
+
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Search</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/search.tsx" />
-      <Link href="/modal" asChild>
-        <Pressable>
-          {({ pressed }) => (
-            <FontAwesome
-              name="info-circle"
-              size={25}
-              color={Colors[colorScheme ?? 'light'].text}
-              style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+      <SearchBar 
+        placeholder="Search everything..."
+        onChangeText={handleSearchTextChange}
+        value={searchQuery}
+      />
+      {searchQuery ? (
+        <ScrollView contentContainerStyle={styles.container}>
+          {filteredData.map((item, index) => (
+            <VerticalCard
+              key={index}
+              title={item.searchKey}
+              onPress={() => {
+                if (item.type === 'Anatomical Subgroup') {
+                  navigation.navigate('AnatomicalSubgroup', { item });
+                } else if (item.type === 'Therapeutic Subgroup') {
+                  navigation.navigate('TherapeuticSubgroup', { item });
+                } else if (item.type === 'Topic') {
+                  navigation.navigate('Medications', { item });
+                }
+              }}
             />
-          )}
-        </Pressable>
-      </Link>
+          ))}
+        </ScrollView>
+      ) : (
+        <Text style={styles.placeholderText}>Start typing to search...</Text>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  container:{
+    flex:1,
+    alignItems: "center",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+  placeholderText: {
+    textAlign: 'center',
+    marginTop: 20,
+    color: '#888',
+  }
 });
