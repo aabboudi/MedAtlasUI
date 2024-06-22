@@ -64,7 +64,7 @@ export default function TabLayout() {
         options={{
           title: 'Search',
           headerShown: false,
-          tabBarIcon: ({ color }) => <FontAwesome name="search" size={24} color={color} />
+          tabBarIcon: ({ color }) => <Feather name="search" size={24} color={color} />
         }}
       />
       <Tabs.Screen
