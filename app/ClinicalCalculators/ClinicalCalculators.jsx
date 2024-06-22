@@ -3,16 +3,24 @@ import { StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import fetchDataAnatomy from '@/assets/fetchers/fetchDataAnatomy';
 import { VerticalCard } from '@/components/Card';
+import fetchClinicalCalcs from '@/assets/fetchers/fetchCilnicalCalcs';
 
 export default function ClinicalCalculators() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+  const handleCardPress = (category) => {
+    console.log(`Card pressed: ${category.name}`);
+    navigation.navigate('cinicalCalcsSheet', { category });
+  };
+
+
   useEffect(() => {
     const loadApiData = async () => {
       try {
-        const result = await fetchDataAnatomy();
+        const result = await fetchClinicalCalcs();
         setData(result);
       } catch (err) {
         setError('Failed to fetch data');
@@ -41,11 +49,10 @@ export default function ClinicalCalculators() {
       <View style={styles.container}>
         {data.map((item) => (
           <VerticalCard
-            key={item._id}
-            title={item.part}
-            content={item.description}
+            key={item._id.toString()} 
+            title={item.name}
+            content={item.description || "No description available"} 
             style={styles.card}
-            // onPress={() => navigation.navigate('BiologicalValues')}
           />
         ))}
       </View>
