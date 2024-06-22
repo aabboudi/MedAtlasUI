@@ -68,11 +68,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="favorites"
+        name="settings"
         options={{
-          title: 'Favorites',
+          title: 'Settings',
           headerShown: false,
-          tabBarIcon: ({ color }) => <FontAwesome name="heart-o" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <Feather name="settings" size={24} color={color} />,
         }}
       />
 

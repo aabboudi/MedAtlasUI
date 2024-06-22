@@ -3,7 +3,7 @@ import { StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import fetchDataAnatomy from '@/assets/fetchers/fetchDataAnatomy';
 import { VerticalCard } from '@/components/Card';
-import fetchClinicalCalcs from '@/assets/fetchers/fetchCilnicalCalcs';
+// import fetchClinicalCalcs from '@/assets/fetchers/fetchCilnicalCalcs';
 
 export default function ClinicalCalculators() {
   const [data, setData] = useState([]);
@@ -20,7 +20,7 @@ export default function ClinicalCalculators() {
   useEffect(() => {
     const loadApiData = async () => {
       try {
-        const result = await fetchClinicalCalcs();
+        const result = await fetchDataAnatomy();
         setData(result);
       } catch (err) {
         setError('Failed to fetch data');
