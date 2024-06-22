@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, ScrollView, StyleSheet, Text } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 import SearchBar from '@/components/searchbar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -9,11 +9,10 @@ import atcTree from '@/assets/temp_data/atctree.json';
 
 const SearchStack = createNativeStackNavigator();
 
-
-
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState('');
   const [combinedData, setCombinedData] = useState([]);
+  const [searchHistory, setSearchHistory] = useState([]);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -32,6 +31,16 @@ export default function Search() {
     setSearchQuery(text.toLowerCase());
   };
 
+  const handleSearchSubmit = () => {
+    if (searchQuery && !searchHistory.includes(searchQuery)) {
+      setSearchHistory([searchQuery, ...searchHistory]);
+    }
+  };
+
+  const handleHistoryItemPress = (query) => {
+    setSearchQuery(query);
+  };
+
   const flattenAtcTree = (tree) => {
     const flattened = [];
     Object.keys(tree).forEach((key) => {
@@ -48,17 +57,23 @@ export default function Search() {
     item.searchKey.toLowerCase().includes(searchQuery)
   );
 
-
-
   return (
     <View style={styles.container}>
       <SearchBar 
         placeholder="Search everything..."
         onChangeText={handleSearchTextChange}
         value={searchQuery}
+        onSubmitEditing={handleSearchSubmit}
       />
+      <View style={styles.historyContainer}>
+        {searchHistory.map((query, index) => (
+          <TouchableOpacity key={index} onPress={() => handleHistoryItemPress(query)}>
+            <Text style={styles.historyItem}>{query}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
       {searchQuery ? (
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
           {filteredData.map((item, index) => (
             <VerticalCard
               key={index}
@@ -81,6 +96,7 @@ export default function Search() {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container:{

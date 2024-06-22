@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet ,ActivityIndicator, ScrollView} from 'react-native';
 import { VerticalCard } from '@/components/Card';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import medsFetcher from '@/assets/fetchers/medsFetcher';
@@ -9,6 +9,7 @@ const Medications = () => {
   const { ATCCode } = route.params;
   const [medications, setMedications] = useState([]);
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchMedications = async () => {
@@ -17,12 +18,17 @@ const Medications = () => {
         setMedications(fetchedMeds);
       } catch (error) {
         console.error('Error fetching medications:', error);
+      }finally {
+        setLoading(false);
       }
     };
 
     fetchMedications();
   }, [ATCCode]);
 
+  if (loading) {
+    return <ActivityIndicator size="large" color="#ffffff" />;
+  }
   return (
     <View style={styles.container}>
       <FlatList
