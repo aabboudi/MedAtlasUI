@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { Text, View } from '@/components/Themed';
-import fetchDataAnatomy from '@/assets/fetchers/fetchDataAnatomy';
 import { VerticalCard } from '@/components/Card';
-// import fetchClinicalCalcs from '@/assets/fetchers/fetchCilnicalCalcs';
+import fetchClinicalCalcs from '@/assets/fetchers/fetchClinicalCalcs';
+import SearchBar from '@/components/SearchBar';
+import { useNavigation } from '@react-navigation/native';
+
+import { useColorScheme } from '@/components/useColorScheme';
+import Colors from '@/constants/Colors';
 
 export default function ClinicalCalculators() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-
-  const handleCardPress = (category) => {
-    console.log(`Card pressed: ${category.name}`);
-    navigation.navigate('cinicalCalcsSheet', { category });
-  };
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigation = useNavigation();
+  const colorScheme = useColorScheme();
+  const styles = AllStyles(Colors, colorScheme);
 
   useEffect(() => {
     const loadApiData = async () => {
       try {
-        const result = await fetchDataAnatomy();
+        const result = await fetchClinicalCalcs();
         setData(result);
       } catch (err) {
         setError('Failed to fetch data');
@@ -44,15 +45,29 @@ export default function ClinicalCalculators() {
     );
   }
 
+  // Filter data based on search term
+  const filteredData = data.filter(item =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
-        {data.map((item) => (
+        <SearchBar
+          placeholder="Search..."
+          onChangeText={text => setSearchTerm(text)}
+          value={searchTerm}
+        />
+
+        {filteredData.map(item => (
           <VerticalCard
-            key={item._id.toString()} 
+            key={item._id.toString()}
             title={item.name}
-            content={item.description || "No description available"} 
+            content={item.description}
             style={styles.card}
+            onPress={() =>
+              navigation.navigate('Calculator', {calc: item})
+            }
           />
         ))}
       </View>
@@ -60,10 +75,10 @@ export default function ClinicalCalculators() {
   );
 }
 
-const styles = StyleSheet.create({
+const AllStyles = (Colors, colorScheme) => StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
   },
@@ -74,8 +89,5 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     textAlign: 'center',
-  },
-  card: {
-    marginBottom: 16,
   },
 });

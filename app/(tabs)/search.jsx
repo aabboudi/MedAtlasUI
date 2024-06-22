@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
-import SearchBar from '@/components/searchbar';
+import SearchBar from '@/components/SearchBar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { VerticalCard } from '@/components/Card'; 
 import topicsData from '@/assets/temp_data/topicsData.json';
 import atcTree from '@/assets/temp_data/atctree.json';
+
+import styles from '@/assets/styles/styles';
 
 const SearchStack = createNativeStackNavigator();
 
@@ -91,18 +93,14 @@ export default function Search() {
           ))}
         </ScrollView>
       ) : (
-        <Text style={styles.placeholderText}>Start typing to search...</Text>
+        <Text style={localStyles.placeholderText}>Start typing to search...</Text>
       )}
     </View>
   );
 }
 
 
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    alignItems: "center",
-  },
+const localStyles = StyleSheet.create({
   placeholderText: {
     textAlign: 'center',
     marginTop: 20,

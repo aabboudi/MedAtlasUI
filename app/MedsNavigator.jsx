@@ -9,7 +9,13 @@ const MedsStack = createNativeStackNavigator();
 
 export default function MedsNavigator() {
   return (
-    <MedsStack.Navigator screenOptions={{ headerTitleAlign: 'center', headerBackTitle: 'Back' }} >
+    <MedsStack.Navigator
+      initialRouteName='Anatomical Subgroup'
+      screenOptions={{
+        headerTitleAlign: 'center',
+        headerBackTitle: 'Back'
+      }}
+    >
       <MedsStack.Screen name="Anatomical Subgroup" component={AnatomicalSubgroup} />
       <MedsStack.Screen name="Therapeutic Subgroup" component={TherapeuticSubgroup} />
       <MedsStack.Screen name="Medications" component={Medications} />
