@@ -21,7 +21,7 @@ export default function Search() {
     const loadAllData = () => {
       const flattenedAtcTree = flattenAtcTree(atcTree);
       const combined = [
-        ...topicsData.map(item => ({ ...item, type: 'Topic', searchKey: item.name })),
+        // ...topicsData.map(item => ({ ...item, type: 'Topic', searchKey: item.name })),
         ...flattenedAtcTree
       ];
       setCombinedData(combined);
@@ -46,10 +46,11 @@ export default function Search() {
   const flattenAtcTree = (tree) => {
     const flattened = [];
     Object.keys(tree).forEach((key) => {
+      // console.log(tree[key]['subcategories']);
       const category = tree[key];
-      flattened.push({ type: 'ATC Category', searchKey: category.name });
+      flattened.push({ type: 'Anatomical Subgroup', carryOver: key, searchKey: category.name });
       Object.keys(category.subcategories).forEach((subKey) => {
-        flattened.push({ type: 'ATC Subcategory', searchKey: category.subcategories[subKey] });
+        flattened.push({ type: 'Therapeutic Subgroup', carryOver: subKey, searchKey: category.subcategories[subKey] });
       });
     });
     return flattened;
@@ -80,13 +81,15 @@ export default function Search() {
             <VerticalCard
               key={index}
               title={item.searchKey}
+              content={item.type}
               onPress={() => {
                 if (item.type === 'Anatomical Subgroup') {
-                  navigation.navigate('AnatomicalSubgroup', { item });
+                  console.log(`${item.type} navigating to Therapeutic Subgroup with ${ item.carryOver }`);
+                  // console.log(JSON.stringify(atcTree, null, 2));
+                  navigation.navigate('Therapeutic Subgroup', { subcategories: atcTree[item.carryOver]['subcategories'] });
                 } else if (item.type === 'Therapeutic Subgroup') {
-                  navigation.navigate('TherapeuticSubgroup', { item });
-                } else if (item.type === 'Topic') {
-                  navigation.navigate('Medications', { item });
+                  console.log(`${item.type} navigating to Medication with ${ item.carryOver }`);
+                  navigation.navigate('Medications', { ATCCode: item.carryOver });
                 }
               }}
             />
