@@ -37,10 +37,10 @@ const CalculatorUI = ({ route }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>{calc.name}</Text>
+      <Text style={styles.header}>{calc.name.replace('Calculator', '')}</Text>
       {calc.input.map((input, index) => (
         <View key={index} style={styles.inputGroup}>
-          <Text style={styles.inputLabel}>{input.description} ({input.unit}):</Text>
+          <Text style={styles.inputLabel}>{input.description}:</Text>
           <TextInput
             style={styles.input}
             value={inputs[input.name]}
@@ -70,6 +70,7 @@ const AllStyles = (Colors, colorScheme) => StyleSheet.create({
   header: {
     fontSize: 22,
     fontWeight: 'bold',
+    textAlign: 'center',
     marginBottom: 20,
     color: Colors[colorScheme ?? 'light'].text,
   },
@@ -79,11 +80,6 @@ const AllStyles = (Colors, colorScheme) => StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
   inputLabel: {
     fontSize: 16,
@@ -91,15 +87,15 @@ const AllStyles = (Colors, colorScheme) => StyleSheet.create({
     marginBottom: 5,
   },
   input: {
-    width: '100%', // Full width
+    width: '100%',
     height: 40,
     borderColor: '#ccc',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors[colorScheme ?? 'light'].background,
     borderWidth: 1,
     padding: 10,
-    borderRadius: 4, // Rounded corners for inputs
-    fontSize: 16, // Slightly larger font size
-    color: '#333', // Dark text for better readability
+    borderRadius: 4,
+    fontSize: 16,
+    color: Colors[colorScheme ?? 'light'].textMuted,
   },
   button: {
     marginTop: 20,
