@@ -4,12 +4,16 @@ import { VerticalCard } from '@/components/Card';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import medsFetcher from '@/assets/fetchers/medsFetcher';
 
+import { useColorScheme } from 'react-native';
+import Colors from '@/constants/Colors';
+
 const Medications = () => {
   const route = useRoute();
   const { ATCCode } = route.params;
   const [medications, setMedications] = useState([]);
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
+  const colorScheme = useColorScheme();
 
   useEffect(() => {
     const fetchMedications = async () => {
@@ -27,8 +31,14 @@ const Medications = () => {
   }, [ATCCode]);
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#ffffff" />;
-  }
+    return(
+      <View style={{ flex: 1, justifyContent: 'center'}}>
+        <ActivityIndicator
+          size="large"
+          color={Colors[colorScheme ?? 'light'].text}
+        />
+      </View>
+    )  }
   return (
     <View style={styles.container}>
       <FlatList

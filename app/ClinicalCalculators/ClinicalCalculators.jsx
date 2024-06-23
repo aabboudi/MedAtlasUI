@@ -34,7 +34,14 @@ export default function ClinicalCalculators() {
   }, []);
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
+    return(
+      <View style={{ flex: 1, justifyContent: 'center'}}>
+        <ActivityIndicator
+          size="large"
+          color={Colors[colorScheme ?? 'light'].text}
+        />
+      </View>
+    )
   }
 
   if (error) {
