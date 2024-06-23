@@ -34,7 +34,7 @@ export default function ClinicalCalculators() {
   }, []);
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#ffffff" />;
+    return <ActivityIndicator size="large" color="#0000ff" />;
   }
 
   if (error) {
@@ -80,11 +80,11 @@ const AllStyles = (Colors, colorScheme) => StyleSheet.create({
     flexGrow: 1,
     // justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
   },
   container: {
     flex: 1,
     alignItems: 'center',
+    padding: 16,
   },
   errorText: {
     color: 'red',
