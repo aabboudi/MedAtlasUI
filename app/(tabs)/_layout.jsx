@@ -27,10 +27,10 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
+        headerTitleAlign: 'center',
+        headerBackTitle: 'Back',
         tabBarStyle: {
-          // backgroundColor: 'transparent',
           height: 60,
-          marginBottom: 20,
           paddingTop: 10,
           paddingBottom: 10,
         },
@@ -40,10 +40,9 @@ export default function TabLayout() {
         options={{
           title: 'Home',
           headerShown: false,
-          // tabBarIcon: ({ color }) => <FontAwesome name="home" size={24} color={color} />,
           tabBarIcon: ({ color }) => <Feather name="home" size={24} color={color} />,
+          // LINK OF MODAL INFO BUTTON
           headerRight: () => (
-            // LINK OF MODAL INFO BUTTON
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
@@ -63,7 +62,7 @@ export default function TabLayout() {
         name="search"
         options={{
           title: 'Search',
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="search" size={24} color={color} />
         }}
       />
@@ -71,7 +70,7 @@ export default function TabLayout() {
         name="settings"
         options={{
           title: 'Settings',
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="settings" size={24} color={color} />,
         }}
       />
