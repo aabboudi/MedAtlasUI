@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         padding: 8,
-        paddingTop: 80,
+        paddingTop: 20,
     },
     title: {
         fontSize: 20,
