@@ -10,6 +10,7 @@ const screenHeight = Dimensions.get('window').height;
 
 const SearchBar = ({ placeholder, onChangeText, searchQuery }) => {
   const colorScheme = useColorScheme();
+  const styles = AllStyles(Colors, colorScheme);
   return (
     <View style={[styles.searchSection, {
       backgroundColor: Colors[colorScheme ?? 'light'].background,
@@ -28,7 +29,7 @@ const SearchBar = ({ placeholder, onChangeText, searchQuery }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const AllStyles = (Colors, colorScheme) => StyleSheet.create({
   searchSection: {
     flexDirection: 'row',
     borderRadius: 16, 
@@ -43,8 +44,9 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    padding: 0.01 * screenHeight, 
-    fontSize: 0.02 * screenHeight, 
+    padding: 0.01 * screenHeight,
+    fontSize: 0.02 * screenHeight,
+    color: Colors[colorScheme ?? 'light'].text,
   }
 });
 
