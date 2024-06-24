@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet ,ActivityIndicator, ScrollView} from 'react-native';
+import { View, Text, FlatList, StyleSheet, ActivityIndicator, ScrollView} from 'react-native';
 import { VerticalCard } from '@/components/Card';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import medsFetcher from '@/assets/fetchers/medsFetcher';
 
 import { useColorScheme } from 'react-native';
 import Colors from '@/constants/Colors';
+import globalStyles from '@/assets/styles/styles';
 
 const Medications = () => {
   const route = useRoute();
-  const { ATCCode } = route.params;
+  const { ATCCode, ATCName } = route.params;
   const [medications, setMedications] = useState([]);
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
   const colorScheme = useColorScheme();
+  const styles = globalStyles();
 
   useEffect(() => {
     const fetchMedications = async () => {
@@ -41,6 +43,7 @@ const Medications = () => {
     )  }
   return (
     <View style={styles.container}>
+      <Text style={[styles.title, {textAlign: 'center', marginBottom: 10, marginHorizontal: 10}]}>{ ATCName.toUpperCase() }</Text>
       <FlatList
         data={medications}
         renderItem={({ item }) => (
@@ -58,14 +61,5 @@ const Medications = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-});
 
 export default Medications;

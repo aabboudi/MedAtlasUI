@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Platform, Pressable } from 'react-native';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -33,6 +33,7 @@ export default function TabLayout() {
           height: 60,
           paddingTop: 10,
           paddingBottom: 10,
+          marginBottom: Platform.OS === 'ios' ? 20 : 0,
         },
       }}>
       <Tabs.Screen
@@ -59,11 +60,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="search"
+        name="library"
         options={{
-          title: 'Search',
+          title: 'Library',
           headerShown: true,
-          tabBarIcon: ({ color }) => <Feather name="search" size={24} color={color} />
+          tabBarIcon: ({ color }) => <Feather name="book" size={24} color={color} />
         }}
       />
       <Tabs.Screen

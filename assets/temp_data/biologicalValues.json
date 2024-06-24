@@ -1,0 +1,353 @@
+[
+    {
+      "id": 1,
+      "name": "Hemoglobin",
+      "normalRange": "13.8 to 17.2 g/dL for men, 12.1 to 15.1 g/dL for women",
+      "unit": "g/dL",
+      "importance": "Essential for oxygen transport in the blood"
+    },
+    {
+      "id": 2,
+      "name": "White Blood Cell Count (WBC)",
+      "normalRange": "4,500 to 11,000 cells per microliter",
+      "unit": "cells/microliter",
+      "importance": "Indicates immune system activity"
+    },
+    {
+      "id": 3,
+      "name": "Platelet Count",
+      "normalRange": "150,000 to 450,000 platelets per microliter",
+      "unit": "platelets/microliter",
+      "importance": "Essential for blood clotting"
+    },
+    {
+      "id": 4,
+      "name": "Hematocrit",
+      "normalRange": "38.8 to 50.0% for men, 34.9 to 44.5% for women",
+      "unit": "%",
+      "importance": "Measures the proportion of red blood cells in the blood"
+    },
+    {
+      "id": 5,
+      "name": "Blood Urea Nitrogen (BUN)",
+      "normalRange": "7 to 20 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Indicates kidney function"
+    },
+    {
+      "id": 6,
+      "name": "Creatinine",
+      "normalRange": "0.84 to 1.21 mg/dL for men, 0.56 to 1.00 mg/dL for women",
+      "unit": "mg/dL",
+      "importance": "Indicates kidney function"
+    },
+    {
+      "id": 7,
+      "name": "Glucose",
+      "normalRange": "70 to 100 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Primary energy source for the body's cells"
+    },
+    {
+      "id": 8,
+      "name": "Calcium",
+      "normalRange": "8.6 to 10.2 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Important for bones and teeth, nerve function, muscle contraction, and blood clotting"
+    },
+    {
+      "id": 9,
+      "name": "Sodium",
+      "normalRange": "135 to 145 mEq/L",
+      "unit": "mEq/L",
+      "importance": "Essential for maintaining fluid balance, muscle function, and nerve function"
+    },
+    {
+      "id": 10,
+      "name": "Potassium",
+      "normalRange": "3.5 to 5.0 mEq/L",
+      "unit": "mEq/L",
+      "importance": "Critical for heart function and plays a key role in skeletal and smooth muscle contraction"
+    },
+    {
+      "id": 11,
+      "name": "Cholesterol (Total)",
+      "normalRange": "Less than 200 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Important component of cell membranes and precursor of steroid hormones and vitamin D"
+    },
+    {
+      "id": 12,
+      "name": "LDL (Low-Density Lipoprotein) Cholesterol",
+      "normalRange": "Less than 100 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Known as 'bad cholesterol'; high levels can lead to plaque formation in arteries"
+    },
+    {
+      "id": 13,
+      "name": "HDL (High-Density Lipoprotein) Cholesterol",
+      "normalRange": "40 to 60 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Known as 'good cholesterol'; helps remove LDL cholesterol"
+    },
+    {
+      "id": 14,
+      "name": "Triglycerides",
+      "normalRange": "Less than 150 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Type of fat in the blood; high levels can increase the risk of heart disease"
+    },
+    {
+      "id": 15,
+      "name": "Alanine Aminotransferase (ALT)",
+      "normalRange": "7 to 55 units per liter",
+      "unit": "units/liter",
+      "importance": "Enzyme found mainly in the liver; high levels can indicate liver damage"
+    },
+    {
+      "id": 16,
+      "name": "Aspartate Aminotransferase (AST)",
+      "normalRange": "8 to 48 units per liter",
+      "unit": "units/liter",
+      "importance": "Enzyme found in various tissues but most notably in the liver and heart; used to detect liver damage"
+    },
+    {
+      "id": 17,
+      "name": "Alkaline Phosphatase (ALP)",
+      "normalRange": "40 to 129 units per liter",
+      "unit": "units/liter",
+      "importance": "Enzyme related to the bile ducts; often increased if ducts are blocked"
+    },
+    {
+      "id": 18,
+      "name": "Albumin",
+      "normalRange": "3.4 to 5.4 g/dL",
+      "unit": "g/dL",
+      "importance": "Protein made by the liver; a measure of nutritional status and liver and kidney function"
+    },
+    {
+      "id": 19,
+      "name": "Total Protein",
+      "normalRange": "6.3 to 7.9 g/dL",
+      "unit": "g/dL",
+      "importance": "Measures albumin and all other proteins in blood; important for assessing liver and kidney function"
+    },
+    {
+      "id": 20,
+      "name": "Bilirubin",
+      "normalRange": "0.1 to 1.2 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Product of the breakdown of red blood cells; can indicate liver problems or anemia"
+    },
+    {
+      "id": 21,
+      "name": "Uric Acid",
+      "normalRange": "3.5 to 7.2 mg/dL for men, 2.6 to 6.0 mg/dL for women",
+      "unit": "mg/dL",
+      "importance": "Waste product removed by the kidneys; high levels can lead to gout or kidney stones"
+    },
+    {
+      "id": 22,
+      "name": "C-Reactive Protein (CRP)",
+      "normalRange": "Less than 1.0 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Marker of inflammation; can be used to help evaluate risk of cardiovascular disease"
+    },
+    {
+      "id": 23,
+      "name": "Prothrombin Time (PT)",
+      "normalRange": "9.5 to 13.8 seconds",
+      "unit": "seconds",
+      "importance": "Measures how long it takes blood to clot; important for people taking blood thinners"
+    },
+    {
+      "id": 24,
+      "name": "Activated Partial Thromboplastin Time (aPTT)",
+      "normalRange": "30 to 40 seconds",
+      "unit": "seconds",
+      "importance": "Used to evaluate the blood's ability to clot; often used to monitor blood-thinning medicines"
+    },
+    {
+      "id": 25,
+      "name": "Magnesium",
+      "normalRange": "1.7 to 2.2 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Critical for muscle function, nerve function, blood glucose control, and blood pressure regulation"
+    },
+    {
+      "id": 26,
+      "name": "Phosphorus",
+      "normalRange": "2.5 to 4.5 mg/dL",
+      "unit": "mg/dL",
+      "importance": "Important for bone formation, energy storage and release, and urinary pH buffering"
+    },
+    {
+      "id": 27,
+      "name": "Lactate Dehydrogenase (LDH)",
+      "normalRange": "140 to 280 units per liter",
+      "unit": "units/liter",
+      "importance": "Enzyme found in almost all body tissues; high levels can indicate tissue damage"
+    },
+    {
+      "id": 28,
+      "name": "Cortisol",
+      "normalRange": "10 to 20 mcg/dL in the morning, 3 to 10 mcg/dL in the afternoon",
+      "unit": "mcg/dL",
+      "importance": "Steroid hormone produced by the adrenal cortex; involved in stress response, blood glucose regulation, and immune function"
+    },
+    {
+      "id": 29,
+      "name": "Amylase",
+      "normalRange": "23 to 85 units per liter",
+      "unit": "units/liter",
+      "importance": "Enzyme that helps digest carbohydrates; elevated levels can indicate pancreatitis"
+    },
+    {
+      "id": 30,
+      "name": "Lipase",
+      "normalRange": "0 to 160 units per liter",
+      "unit": "units/liter",
+      "importance": "Enzyme that helps digest fats; can be used to help diagnose pancreatitis and other pancreatic diseases"
+    },
+    {
+      "id": 31,
+      "name": "Vitamin D",
+      "normalRange": "20 to 50 ng/mL",
+      "unit": "ng/mL",
+      "importance": "Essential for bone health and immune function; deficiencies can lead to a variety of health problems"
+    },
+    {
+      "id": 32,
+      "name": "Folate (Folic Acid)",
+      "normalRange": "2.7 to 17.0 ng/mL",
+      "unit": "ng/mL",
+      "importance": "B vitamin important for cell replication and growth; essential for red blood cell formation and function"
+    },
+    {
+      "id": 33,
+      "name": "Vitamin B12",
+      "normalRange": "200 to 900 pg/mL",
+      "unit": "pg/mL",
+      "importance": "Necessary for red blood cell formation, neurological function, and DNA synthesis"
+    },
+    {
+      "id": 34,
+      "name": "Testosterone",
+      "normalRange": "300 to 1,000 ng/dL for men, 15 to 70 ng/dL for women",
+      "unit": "ng/dL",
+      "importance": "Primary male sex hormone; important for bone density, muscle strength, and the development of male sex characteristics"
+    },
+    {
+      "id": 35,
+      "name": "Estradiol",
+      "normalRange": "14 to 35 pg/mL for men, 30 to 400 pg/mL for women depending on the menstrual cycle phase",
+      "unit": "pg/mL",
+      "importance": "Primary female sex hormone; plays a crucial role in the development and maintenance of female reproductive tissues"
+    },
+    {
+      "id": 36,
+      "name": "Prostate-Specific Antigen (PSA)",
+      "normalRange": "0 to 4 ng/mL",
+      "unit": "ng/mL",
+      "importance": "Protein produced by the prostate gland; elevated levels can be a sign of prostate cancer"
+    },
+    {
+      "id": 37,
+      "name": "Thyroid-Stimulating Hormone (TSH)",
+      "normalRange": "0.4 to 4.0 mIU/L",
+      "unit": "mIU/L",
+      "importance": "Regulates thyroid gland function; essential for controlling metabolism, energy generation, and mood"
+    },
+    {
+      "id": 38,
+      "name": "Free T4 (Thyroxine)",
+      "normalRange": "0.8 to 2.0 ng/dL",
+      "unit": "ng/dL",
+      "importance": "Thyroid hormone; essential for regulating metabolism, mood, and body temperature"
+    },
+    {
+      "id": 39,
+      "name": "Free T3 (Triiodothyronine)",
+      "normalRange": "2.3 to 4.2 pg/mL",
+      "unit": "pg/mL",
+      "importance": "Active thyroid hormone; regulates metabolic rate, heart and digestive function, muscle control, brain development, and bone maintenance"
+    },
+    {
+      "id": 40,
+      "name": "Rheumatoid Factor (RF)",
+      "normalRange": "Less than 14 IU/mL",
+      "unit": "IU/mL",
+      "importance": "Autoantibodies found in rheumatoid arthritis; used in the diagnosis of rheumatic diseases"
+    },
+    {
+      "id": 41,
+      "name": "Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP)",
+      "normalRange": "Less than 20 EU/mL",
+      "unit": "EU/mL",
+      "importance": "Marker of rheumatoid arthritis; more specific than rheumatoid factor for diagnosing the disease"
+    },
+    {
+      "id": 42,
+      "name": "Antinuclear Antibodies (ANA)",
+      "normalRange": "Typically less than 1:160 titer",
+      "unit": "titer",
+      "importance": "Used to diagnose autoimmune diseases, such as lupus and scleroderma"
+    },
+    {
+      "id": 43,
+      "name": "Erythrocyte Sedimentation Rate (ESR)",
+      "normalRange": "0 to 22 mm/hr for men, 0 to 29 mm/hr for women",
+      "unit": "mm/hr",
+      "importance": "Non-specific measure of inflammation"
+    },
+    {
+      "id": 44,
+      "name": "C-reactive Protein (CRP)",
+      "normalRange": "Less than 3.0 mg/L",
+      "unit": "mg/L",
+      "importance": "Another non-specific marker used to assess levels of inflammation in the body"
+    },
+    {
+      "id": 45,
+      "name": "Iron",
+      "normalRange": "60 to 170 mcg/dL",
+      "unit": "mcg/dL",
+      "importance": "Essential for the formation of red blood cells and transportation of oxygen throughout the body"
+    },
+    {
+      "id": 46,
+      "name": "Ferritin",
+      "normalRange": "20 to 250 ng/mL for men, 10 to 120 ng/mL for women",
+      "unit": "ng/mL",
+      "importance": "Indicates the amount of iron stored in the body; used to diagnose iron deficiency or iron overload"
+    },
+    {
+      "id": 47,
+      "name": "Transferrin Saturation",
+      "normalRange": "20% to 50%",
+      "unit": "%",
+      "importance": "Measures the percentage of transferrin that is saturated with iron; used to assess iron status"
+    },
+    {
+      "id": 48,
+      "name": "Total Iron-Binding Capacity (TIBC)",
+      "normalRange": "250 to 450 mcg/dL",
+      "unit": "mcg/dL",
+      "importance": "Indicates how well the body can transport iron in the blood"
+    },
+    {
+      "id": 49,
+      "name": "HbA1c (Glycated Hemoglobin)",
+      "normalRange": "Less than 5.7%",
+      "unit": "%",
+      "importance": "Long-term indicator of blood glucose control; used in the diagnosis and monitoring of diabetes"
+    },
+    {
+      "id": 50,
+      "name": "D-dimer",
+      "normalRange": "Less than 0.5 mg/L FEU",
+      "unit": "mg/L FEU",
+      "importance": "Used to help rule out the presence of an inappropriate blood clot (thrombus)"
+    }
+  ]
+  

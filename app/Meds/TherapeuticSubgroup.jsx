@@ -3,14 +3,17 @@ import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { VerticalCard } from '@/components/Card';
 import { useNavigation } from '@react-navigation/native';
+import globalStyles from '@/assets/styles/styles';
 
 const TherapeuticSubgroup = () => {
   const route = useRoute();
-  const { subcategories } = route.params;
+  const { subcategories, AnatSubg } = route.params;
   const navigation = useNavigation();
+  const styles = globalStyles();
 
   return (
     <View style={styles.container}>
+      <Text style={[styles.title, {textAlign: 'center', marginBottom: 10, marginHorizontal: 10}]}>{ AnatSubg }</Text>
       <FlatList
         data={Object.keys(subcategories).map(key => ({ key, value: subcategories[key] }))}
         renderItem={({ item }) => (
@@ -18,7 +21,7 @@ const TherapeuticSubgroup = () => {
             title={item.key}
             content={item.value}
             onPress={() => 
-              navigation.navigate('Medications', { ATCCode: item.key })
+              navigation.navigate('Medications', { ATCCode: item.key, ATCName: item.value })
             }
           />
         )}
@@ -27,20 +30,5 @@ const TherapeuticSubgroup = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  item: {
-    marginBottom: 10,
-    padding: 10,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 5,
-  },
-});
 
 export default TherapeuticSubgroup;

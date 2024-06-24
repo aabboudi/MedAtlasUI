@@ -1,20 +1,49 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+import { useColorScheme } from 'react-native';
+import Colors from '@/constants/Colors';
 
-const styles = StyleSheet.create({
+const { width, height } = Dimensions.get('window');
+const vh = height / 100;
+const vw = width / 100;
+
+// Define styles as a function that takes Colors and colorScheme as parameters
+const styles = (Colors, colorScheme) => StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        padding: 8,
+        // padding: 8,
         paddingTop: 20,
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
+        color: Colors[colorScheme ?? 'light'].text,
+    },
+    text: {
+        color: Colors[colorScheme ?? 'light'].text,
     },
     separator: {
-        marginVertical: 30,
+        marginVertical: 15,
         height: 1,
         width: '80%',
+    },
+    rowView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 2 * vh,
+    },
+    rowTitle: {
+        fontSize: 2 * vh,
+        fontWeight: 'bold',
+        marginBottom: 1 * vh,
+        margin: 1 * vh,
+    },
+    item: {
+        marginBottom: 10,
+        padding: 10,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 5,
     },
     inputGroup: {
         width: '100%', // Full width
@@ -47,4 +76,8 @@ const styles = StyleSheet.create({
     },
 });
 
-export default styles
+// Export a function call that passes Colors and colorScheme to styles
+export default () => {
+    const colorScheme = useColorScheme(); // Ensure useColorScheme is called here
+    return styles(Colors, colorScheme);
+};

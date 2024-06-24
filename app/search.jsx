@@ -7,7 +7,7 @@ import { VerticalCard } from '@/components/Card';
 import topicsData from '@/assets/temp_data/topicsData.json';
 import atcTree from '@/assets/temp_data/atctree.json';
 
-import styles from '@/assets/styles/styles';
+import globalStyles from '@/assets/styles/styles';
 
 const SearchStack = createNativeStackNavigator();
 
@@ -16,6 +16,7 @@ export default function Search() {
   const [combinedData, setCombinedData] = useState([]);
   const [searchHistory, setSearchHistory] = useState([]);
   const navigation = useNavigation();
+  const styles = globalStyles();
 
   useEffect(() => {
     const loadAllData = () => {
@@ -62,7 +63,7 @@ export default function Search() {
 
   return (
     <View style={styles.container}>
-      <SearchBar 
+      <SearchBar
         placeholder="Search everything..."
         onChangeText={handleSearchTextChange}
         value={searchQuery}
@@ -86,10 +87,12 @@ export default function Search() {
                 if (item.type === 'Anatomical Subgroup') {
                   console.log(`${item.type} navigating to Therapeutic Subgroup with ${ item.carryOver }`);
                   // console.log(JSON.stringify(atcTree, null, 2));
-                  navigation.navigate('Therapeutic Subgroup', { subcategories: atcTree[item.carryOver]['subcategories'] });
+                  // navigation.navigate('Therapeutic Subgroup', { subcategories: atcTree[item.carryOver]['subcategories'] });
+                  navigation.navigate('MedsNavigator', {screen: 'Therapeutic Subgroup', params: { subcategories: atcTree[item.carryOver]['subcategories'], AnatSubg: item.searchKey }});
                 } else if (item.type === 'Therapeutic Subgroup') {
                   console.log(`${item.type} navigating to Medication with ${ item.carryOver }`);
-                  navigation.navigate('Medications', { ATCCode: item.carryOver });
+                  // navigation.navigate('Medications', { ATCCode: item.carryOver });
+                  navigation.navigate('MedsNavigator', {screen: 'Medications', params: { ATCCode: item.carryOver, ATCName: item.searchKey }});
                 }
               }}
             />
@@ -101,7 +104,6 @@ export default function Search() {
     </View>
   );
 }
-
 
 const localStyles = StyleSheet.create({
   placeholderText: {

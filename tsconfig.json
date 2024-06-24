@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "app/Meds/Medications.tsx", "constants/Colors.js", "assets/fetchers/fetchDataAnatomy.js", "app/modal.jsx", "app/MedsNavigator.jsx", "assets/fetchers/fetchDataAnatomy.js", "app/modal.jsx", "app/MedsNavigator.jsx", "app/HomeScreen.jsx", "app/ClinicalCalculatorsNavigator.jsx", "app/+not-found.jsx", "app/+html.jsx", "app/_layout.jsx", "app/(tabs)/index.jsx", "app/(tabs)/search.jsx", "app/(tabs)/settings.jsx", "app/(tabs)/_layout.jsx", "app/BiologicalValues/BiologicalValues.jsx", "app/ClinicalCalculators/ClinicalCalculators.jsx", "app/Meds/TherapeuticSubgroup.jsx", "app/Meds/AnatomicalSubgroup.jsx", "components/Card.jsx"  ]
+, "app/Meds/Medications.tsx", "constants/Colors.js", "assets/fetchers/fetchDataAnatomy.js", "app/modal.jsx", "app/MedsNavigator.jsx", "assets/fetchers/fetchDataAnatomy.js", "app/modal.jsx", "app/MedsNavigator.jsx", "app/HomeScreen.jsx", "app/ClinicalCalculatorsNavigator.jsx", "app/+not-found.jsx", "app/+html.jsx", "app/_layout.jsx", "app/(tabs)/index.jsx", "app/(tabs)/library.jsx", "app/(tabs)/settings.jsx", "app/(tabs)/_layout.jsx", "app/BiologicalValues/BiologicalValues.jsx", "app/ClinicalCalculators/ClinicalCalculators.jsx", "app/Meds/TherapeuticSubgroup.jsx", "app/Meds/AnatomicalSubgroup.jsx", "components/Card.jsx"  ]
 }

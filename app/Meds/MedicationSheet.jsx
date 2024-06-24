@@ -1,15 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Button, Alert } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import { useColorScheme } from '@/components/useColorScheme';
 import Colors from '@/constants/Colors';
 
-const handlePress = () => {
-  Alert.alert('Button Pressed');
-};
-
 const MedicationSheet = () => {
   const route = useRoute();
+  const navigation = useNavigation();
   const { medication } = route.params;
   const colorScheme = useColorScheme();
   const styles = AllStyles(Colors, colorScheme);
@@ -42,8 +39,10 @@ const MedicationSheet = () => {
 
       <Button
         title={`${medication.Nature_du_Produit ? medication.Nature_du_Produit + ' Similaire' : 'Medicaments Similaires'}`}
-        onPress={handlePress}
         color="green"
+        onPress={() => {
+          navigation.navigate('Medications', { ATCCode: medication.Code_ATC, ATCName: medication.Composition });
+        }}
       />
       {/* {medication.Prix_hospitalier && <Text style={styles.text}>Prix Hospitalier: {medication.Prix_hospitalier}</Text>} */}
 

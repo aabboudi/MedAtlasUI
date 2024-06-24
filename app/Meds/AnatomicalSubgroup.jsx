@@ -25,7 +25,7 @@ const AnatomicalSubgroup = () => {
         <HorizontalCard
           title={item.name}
           onPress={() =>
-            navigation.navigate('Therapeutic Subgroup', { subcategories: item.subcategories })
+            navigation.navigate('Therapeutic Subgroup', { subcategories: item.subcategories, AnatSubg: item.name })
           }
           style={styles.card}
         />

@@ -19,9 +19,10 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.rowView}>
         <Text style={styles.rowTitle}>Quick Access</Text>
         <MoreButton
-          title="See All"
-          onPress={() => handleNavigate('Topics')}
+          title="Search Instead"
+          // onPress={() => handleNavigate('Topics')}
           // onPress={() => handleNavigate('Topics', { topics: topicsData })}
+          onPress={() => navigation.navigate('Search')}
         />
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -41,6 +42,14 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.rowTitle}>Services</Text>
       </View>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.justifyCenter}>
+        <VerticalCard
+          title="Quick Search"
+          content="App-wide Library"
+          onPress={() =>
+            navigation.navigate('Search')
+          }
+        />
+
         <VerticalCard
           title="Biological Values"
           content="Reports and Charts"
@@ -85,9 +94,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: 42,
+    marginBottom: 15,
   },
   separator: {
-    marginVertical: 30,
+    marginVertical: 15,
     height: 1,
     width: '100%',
   },
