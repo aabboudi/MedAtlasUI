@@ -54,7 +54,7 @@ export default function HomeScreen({ navigation }) {
           title="Biological Values"
           content="Reports and Charts"
           onPress={() =>
-            navigation.navigate('BiologicalValues')
+            navigation.navigate('BiologicalValuesNavigator')
           }
         />
 

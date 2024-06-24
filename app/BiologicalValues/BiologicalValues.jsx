@@ -1,15 +1,33 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import { VerticalCard } from '@/components/Card';
+
+import biologicalValuesData from '@/assets/temp_data/biologicalValuesData.json';
+import { useNavigation } from '@react-navigation/native';
 
 export default function BiologicalValues() {
+  const navigation=useNavigation();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Biological Values</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/test.tsx" />
-    </View>
+    {/* <Text style={[styles.title, {textAlign: 'center', marginBottom: 10, marginHorizontal: 10}]}>TEST</Text> */}
+    <FlatList
+      data={biologicalValuesData}
+      renderItem={({ item }) => (
+        <VerticalCard
+          title={item.name}
+          content={item.importance}
+          onPress={() => {
+            navigation.navigate('Biological Chart', { chart: item });
+          }}
+          style={{ marginBottom: 10 }}
+        />
+      )}
+      keyExtractor={(item, index) => index.toString()}
+    />
+  </View>
   );
 }
 

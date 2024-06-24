@@ -23,7 +23,7 @@ export default function Settings() {
             <Image
               alt=""
               source={{
-                uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2AKpxPfuPNC40JtEWsT_CkORtEt9aAZB2DA&s',
+                uri: 'https://media.licdn.com/dms/image/D4E03AQHB7qToKtakHg/profile-displayphoto-shrink_200_200/0/1664966381645?e=2147483647&v=beta&t=7oaujqvXCRO9CQeOQWmnFgoj8NUQv6Hg_TH1o9u2JHE',
               }}
               style={styles.profileAvatar}
             />
@@ -42,7 +42,7 @@ export default function Settings() {
           </View>
 
           <View style={styles.profileInfo}>
-            <Text style={styles.profileName}>Dr. Zakaria Mtalai</Text>
+            <Text style={styles.profileName}>Dr. Farouq Lazraq</Text>
             <Text style={styles.profileAddress}>CHU Mohammed VI, Tanger</Text>
           </View>
         </View>

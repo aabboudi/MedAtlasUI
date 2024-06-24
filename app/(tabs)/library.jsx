@@ -11,7 +11,7 @@ export default function Library() {
     // <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
     <ScrollView showsVerticalScrollIndicator={false}>
       <View>
-        <Text style={[styles.title, { marginHorizontal: 20 }]}>Test</Text>
+        <Text style={[styles.title, { marginHorizontal: 20, marginTop: 10 }]}>Test</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {topicsData.slice(0, 5).map((topic, idx) => (
             <HorizontalCard
