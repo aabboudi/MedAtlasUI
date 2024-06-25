@@ -7,15 +7,20 @@ import Colors from '@/constants/Colors';
 // const BiologicalChart = ({ route }) => {
 const BiologicalChart = () => {
   const route = useRoute();
-  const chart = route.params;
+  const { chart } = route.params;
+  const colorScheme = useColorScheme();
+  const styles = AllStyles(Colors, colorScheme);
 
   return (
     <View>
-      <Text style={{ color: 'white' }}>
-        Test
+      <Text style={[styles.header, { color: 'white' }]}>
+        { chart.name } ( { chart.unit } )
       </Text>
       <Text style={{ color: 'white' }}>
-        { chart.name }
+        { chart.normalRange }
+      </Text>
+      <Text style={{ color: 'white' }}>
+        { chart.importance }
       </Text>
     </View>
   );
