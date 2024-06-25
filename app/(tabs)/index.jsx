@@ -20,7 +20,6 @@ export default function HomeNavigator() {
       <HomeStack.Screen name="BiologicalValuesNavigator" component={BiologicalValuesNavigator} options={{ headerShown: false }} />
       <HomeStack.Screen name="ClinicalCalculatorsNavigator" component={ClinicalCalculatorsNavigator} options={{ headerShown: false }} />
       <HomeStack.Screen name="MedsNavigator" component={MedsNavigator} options={{ headerShown: false }} />
-      
     </HomeStack.Navigator>
   );
 }

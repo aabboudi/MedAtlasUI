@@ -62,7 +62,7 @@ export default function Search() {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: 20 }]}>
       <SearchBar
         placeholder="Search everything..."
         onChangeText={handleSearchTextChange}
