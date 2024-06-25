@@ -13,9 +13,12 @@ const TherapeuticSubgroup = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, {textAlign: 'center', marginBottom: 10, marginHorizontal: 10}]}>{ AnatSubg }</Text>
+      {/* <Text style={styles.pageHeader}>{ AnatSubg }</Text> */}
       <FlatList
         data={Object.keys(subcategories).map(key => ({ key, value: subcategories[key] }))}
+        ListHeaderComponent={() => (
+          <Text style={styles.pageHeader}>{ AnatSubg }</Text>
+        )}
         renderItem={({ item }) => (
           <VerticalCard
             title={item.key}

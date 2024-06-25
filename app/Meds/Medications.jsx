@@ -55,11 +55,13 @@ const Medications = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, { textAlign: 'center', marginBottom: 10, marginHorizontal: 10 }]}>
-        {ATCName.toUpperCase()}
-      </Text>
       <FlatList
         data={medications}
+        ListHeaderComponent={() => (
+          <Text style={styles.pageHeader}>
+            {ATCName.toUpperCase()}
+          </Text>
+        )}
         renderItem={({ item }) => (
           <VerticalCard
             title={item.title}
