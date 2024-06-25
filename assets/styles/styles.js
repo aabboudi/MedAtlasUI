@@ -12,11 +12,18 @@ const styles = (Colors, colorScheme) => StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         // padding: 8,
-        paddingTop: 20,
+        // paddingTop: 20,
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
+        color: Colors[colorScheme ?? 'light'].text,
+    },
+    pageHeader: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        margin: 10,
         color: Colors[colorScheme ?? 'light'].text,
     },
     text: {
