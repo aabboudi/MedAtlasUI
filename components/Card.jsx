@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // width: 85 * vw,
+    minWidth: 85 * vw,
     maxWidth: 100 * vw - 40,
     minHeight: 11 * vh,
     padding: 8,
