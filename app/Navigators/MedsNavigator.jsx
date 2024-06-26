@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AnatomicalSubgroup from './Meds/AnatomicalSubgroup';
-import TherapeuticSubgroup from './Meds/TherapeuticSubgroup';
-import Medications from './Meds/Medications';
-import MedicationSheet from './Meds/MedicationSheet';
+import AnatomicalSubgroup from '../Screens/Home/Meds/AnatomicalSubgroup';
+import TherapeuticSubgroup from '../Screens/Home/Meds/TherapeuticSubgroup';
+import Medications from '../Screens/Home/Meds/Medications';
+import MedicationSheet from '../Screens/Home/Meds/MedicationSheet';
 
 const MedsStack = createNativeStackNavigator();
 

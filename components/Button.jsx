@@ -2,17 +2,18 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import { Switch } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import { useColorScheme } from 'react-native';
 import Colors from '@/constants/Colors';
 
 const ChevronButton = ({ onPress, iconName, label, bgColor }) => {
   const colorScheme = useColorScheme();
   const styles = AllStyles(Colors, colorScheme);
+  const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-      onPress={() => {onPress}}
+      onPress={() => {navigation.navigate('Settings Details')}}
       activeOpacity={0.75}
       style={styles.row}>
       <View style={[styles.rowIcon, { backgroundColor: bgColor }]}>
@@ -34,6 +35,7 @@ const ChevronButton = ({ onPress, iconName, label, bgColor }) => {
 const SwitchButton = ({ iconName, label, form, setForm }) => {
   const colorScheme = useColorScheme();
   const styles = AllStyles(Colors, colorScheme);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.row}>

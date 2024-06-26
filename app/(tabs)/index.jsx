@@ -1,14 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
-
-import HomeScreen from '../HomeScreen';
-import BiologicalValuesNavigator from '../BiologicalValuesNavigator';
-import ClinicalCalculators from '../ClinicalCalculators/ClinicalCalculators';
-import ClinicalCalculatorsNavigator from '../ClinicalCalculatorsNavigator';
-import MedsNavigator from '../MedsNavigator';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Search from '../search';
+
+import HomeScreen from '../Screens/Home/HomeScreen';
+import Search from '../Screens/Home/SearchScreen';
+import BiologicalValuesNavigator from '../Navigators/BiologicalValuesNavigator';
+import ClinicalCalculatorsNavigator from '../Navigators/ClinicalCalculatorsNavigator';
+import MedsNavigator from '../Navigators/MedsNavigator';
 
 const HomeStack = createNativeStackNavigator();
 
