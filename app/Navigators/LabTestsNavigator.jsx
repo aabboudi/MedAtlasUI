@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LabTests from '../Screens/Home/BiologicalValues/LabTests';
-import LabTestChart from '../Screens/Home/BiologicalValues/LabTestChart';
+import LabTests from '../Screens/Home/LabTests/LabTests';
+import LabTestChart from '../Screens/Home/LabTests/LabTestChart';
 
 const LabTestsStack = createNativeStackNavigator();
 
