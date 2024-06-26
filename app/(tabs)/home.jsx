@@ -7,11 +7,16 @@ import BiologicalValuesNavigator from '../Navigators/BiologicalValuesNavigator';
 import ClinicalCalculatorsNavigator from '../Navigators/ClinicalCalculatorsNavigator';
 import MedsNavigator from '../Navigators/MedsNavigator';
 
+import LoginScreen from '@/app/Screens/Auth/LoginScreen';
+import SignupScreen from '@/app/Screens/Auth/SignupScreen';
+
 const HomeStack = createNativeStackNavigator();
 
 export default function HomeNavigator() {
   return (
     <HomeStack.Navigator screenOptions={{ headerTitleAlign: 'center' }} >
+      {/* <HomeStack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+      <HomeStack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false }} /> */}
       <HomeStack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       <HomeStack.Screen name="Search" component={Search} />
       <HomeStack.Screen name="BiologicalValuesNavigator" component={BiologicalValuesNavigator} options={{ headerShown: false }} />
