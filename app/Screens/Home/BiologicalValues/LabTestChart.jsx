@@ -13,15 +13,17 @@ const BiologicalChart = () => {
 
   return (
     <View>
-      <Text style={[styles.header, { color: 'white' }]}>
-        { chart.name } ( { chart.unit } )
-      </Text>
-      <Text style={{ color: 'white' }}>
-        { chart.normalRange }
-      </Text>
-      <Text style={{ color: 'white' }}>
-        { chart.importance }
-      </Text>
+      <Text style={[styles.header, { color: 'white' }]}>{ chart.title }</Text>
+      <Text style={{ color: 'white' }}>{ chart.parameters[0].name }</Text>
+      <Text style={{ color: 'white' }}>Placeholder</Text>
+      <Text style={{ color: 'white' }}>{ chart.parameters[0].interpretation }</Text>
+
+      <View style={styles.separator} lightColor="#ccc" darkColor="rgba(255,255,255,0.1)" />
+
+      <Text style={{ color: 'white' }}>{ chart.parameters[1].name }</Text>
+      <Text style={{ color: 'white' }}>Placeholder</Text>
+      <Text style={{ color: 'white' }}>{ chart.parameters[1].interpretation }</Text>
+
     </View>
   );
 };
@@ -38,6 +40,11 @@ const AllStyles = (Colors, colorScheme) => StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
     color: Colors[colorScheme ?? 'light'].text,
+  },
+  separator: {
+    marginVertical: 15,
+    height: 1,
+    width: '80%',
   },
   inputGroup: {
     width: '100%', // Full width

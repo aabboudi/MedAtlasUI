@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { VerticalCard } from '@/components/Card';
 import { useRoute, useNavigation } from '@react-navigation/native';
-import medsFetcher from '@/assets/fetchers/medsFetcher';
+import fetchMeds from '@/assets/fetchers/fetchMeds';
 import { useColorScheme } from 'react-native';
 import Colors from '@/constants/Colors';
 import globalStyles from '@/assets/styles/styles';
@@ -18,9 +18,9 @@ const Medications = () => {
   const styles = globalStyles();
 
   useEffect(() => {
-    const fetchMedications = async () => {
+    const getMeds = async () => {
       try {
-        const fetchedMeds = await medsFetcher(ATCCode);
+        const fetchedMeds = await fetchMeds(ATCCode);
         setMedications(fetchedMeds);
         if (fetchedMeds.length === 0) {
           setError('No medications found');
@@ -32,7 +32,7 @@ const Medications = () => {
       }
     };
 
-    fetchMedications();
+    getMeds();
   }, [ATCCode]);
 
   if (loading) {

@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Define types for the data structure
 interface InputField {
   [key: string]: string;
 }

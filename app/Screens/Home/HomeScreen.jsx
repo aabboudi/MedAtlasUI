@@ -54,15 +54,15 @@ export default function HomeScreen({ navigation }) {
         />
 
         <VerticalCard
-          title="Biological Values"
+          title="Laboratory Tests"
           content="Reports and Charts"
           onPress={() =>
-            navigation.navigate('BiologicalValuesNavigator')
+            navigation.navigate('LabTestsNavigator')
           }
         />
 
         <VerticalCard
-          title="Clinical Calculator"
+          title="Clinical Calculators"
           content="Metric System"
           onPress={() =>
             navigation.navigate('ClinicalCalculatorsNavigator')

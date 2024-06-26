@@ -7,7 +7,7 @@ interface Medication {
   // etc
 }
 
-const medsFetcher = async (ATCCode: string): Promise<Medication[]> => {
+const fetchMeds = async (ATCCode: string): Promise<Medication[]> => {
   try {
     const apiUrl = `http://89.168.34.148/api/meds/${ATCCode}`;
     const response = await axios.get<Medication[]>(apiUrl);
@@ -22,4 +22,4 @@ const medsFetcher = async (ATCCode: string): Promise<Medication[]> => {
   }
 };
 
-export default medsFetcher;
+export default fetchMeds;
