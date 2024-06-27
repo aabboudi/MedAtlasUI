@@ -5,7 +5,7 @@ import { useColorScheme } from '@/components/useColorScheme';
 import Colors from '@/constants/Colors';
 
 // const BiologicalChart = ({ route }) => {
-const BiologicalChart = () => {
+const LabTestChart = () => {
   const route = useRoute();
   const { chart } = route.params;
   const colorScheme = useColorScheme();
@@ -95,4 +95,4 @@ const AllStyles = (Colors, colorScheme) => StyleSheet.create({
   },
 });
 
-export default BiologicalChart;
+export default LabTestChart;
