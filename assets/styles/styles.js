@@ -48,6 +48,7 @@ const styles = (Colors, colorScheme) => StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 1 * vh,
         margin: 1 * vh,
+        color: Colors[colorScheme ?? 'light'].text,
     },
     item: {
         marginBottom: 10,
