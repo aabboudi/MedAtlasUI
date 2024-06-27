@@ -3,11 +3,13 @@ import axios from 'axios';
 import { Alert } from 'react-native';
 import { CommonActions } from '@react-navigation/native';
 
+const API_ROOT = process.env.API_ROOT
+
 const login = async (username, password) => {
   const loginData = { username, password };
 
   try {
-    const response = await axios.post('http://89.168.34.148/login', loginData, {
+    const response = await axios.post(`${API_ROOT}/login/`, loginData, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -28,7 +30,7 @@ const signup = async (username, password, email) => {
   const signupData = { username, password, email };
 
   try {
-    const response = await axios.post('http://89.168.34.148/signup', signupData, {
+    const response = await axios.post(`${API_ROOT}/signup/`, signupData, {
       headers: {
         'Content-Type': 'application/json',
       },

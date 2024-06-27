@@ -1,0 +1,7 @@
+{
+  "env": {
+    "development": {
+      "plugins": ["module:react-native-dotenv"]
+    }
+  }
+}
