@@ -73,7 +73,7 @@ export default function ClinicalCalculators() {
             content={item.description}
             style={styles.card}
             onPress={() =>
-              navigation.navigate('Calculator', {calc: item})
+              navigation.navigate('Calculator', {calc: item, calcName: item.name, navigation: navigation})
             }
           />
         ))}

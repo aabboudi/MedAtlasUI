@@ -23,11 +23,14 @@ const styles = (Colors, colorScheme) => StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         textAlign: 'center',
-        margin: 10,
+        padding: 10,
         color: Colors[colorScheme ?? 'light'].text,
     },
     text: {
         color: Colors[colorScheme ?? 'light'].text,
+    },
+    textMuted: {
+        color: Colors[colorScheme ?? 'light'].textMuted,
     },
     separator: {
         marginVertical: 15,
@@ -67,19 +70,26 @@ const styles = (Colors, colorScheme) => StyleSheet.create({
     },
     inputLabel: {
         fontSize: 16,
-        color: '#555', // Dark gray for text
+        color: '#555',
         marginBottom: 5,
     },
     input: {
-        width: '100%', // Full width
+        width: '100%',
         height: 40,
         borderColor: '#ccc',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: Colors[colorScheme ?? 'light'].backgroundColor,
         borderWidth: 1,
         padding: 10,
-        borderRadius: 4, // Rounded corners for inputs
-        fontSize: 16, // Slightly larger font size
-        color: '#333', // Dark text for better readability
+        borderRadius: 8,
+        fontSize: 16,
+        color: Colors[colorScheme ?? 'light'].text,
+    },
+    loader: {
+        marginTop: 20,
+    },
+        errorText: {
+        color: Colors[colorScheme ?? 'light'].textError,
+        marginTop: 10,
     },
 });
 

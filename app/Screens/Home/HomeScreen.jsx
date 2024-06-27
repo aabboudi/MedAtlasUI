@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, Dimensions } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { HorizontalCard, VerticalCard } from '@/components/Card';
 import MoreButton from '@/components/MoreButton';
@@ -8,10 +9,27 @@ import { Text, View } from '@/components/Themed';
 import topicsData from '@/assets/temp_data/topicsData.json';
 
 export default function HomeScreen({ navigation }) {
+  const [userName, setUserName] = useState("Smith"); // Default name if AsyncStorage is empty
+
+  useEffect(() => {
+    async function loadUserName() {
+      try {
+        const userString = await AsyncStorage.getItem('user');
+        if (userString) {
+          const userData = JSON.parse(userString);
+          setUserName(userData.username);
+        }
+      } catch (error) {
+        console.error('Error loading user from AsyncStorage:', error);
+      }
+    }
+    loadUserName();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={[styles.title, styles.px_20]}>
-        {getGreetingMessage()}, Dr. Smith
+        {getGreetingMessage()}, Dr. {userName}
       </Text>
       <View style={styles.separator} lightColor="#ccc" darkColor="rgba(255,255,255,0.1)" />
       
@@ -19,9 +37,6 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.rowTitle}>Quick Access</Text>
         <MoreButton
           title="Search Instead"
-          // onPress={() => handleNavigate('Topics')}
-          // onPress={() => handleNavigate('Topics', { topics: topicsData })}
-          // onPress={() => navigation.navigate('Search')}
           onPress={() => navigation.navigate('modal')}
         />
       </View>
@@ -30,7 +45,6 @@ export default function HomeScreen({ navigation }) {
           <HorizontalCard
             key={idx}
             title={topic.name}
-            // onPress={() => handleNavigate('TopicsDetails', { topic })}
             style={[
               idx === 0 && { marginLeft: 20 },
               idx === 4 && { marginRight: 20 },
@@ -48,32 +62,24 @@ export default function HomeScreen({ navigation }) {
         <VerticalCard
           title="Quick Search"
           content="App-wide Library"
-          onPress={() =>
-            navigation.navigate('Search')
-          }
+          onPress={() => navigation.navigate('Search')}
         />
 
         <VerticalCard
           title="Laboratory Tests"
           content="Reports and Charts"
-          onPress={() =>
-            navigation.navigate('LabTestsNavigator')
-          }
+          onPress={() => navigation.navigate('LabTestsNavigator')}
         />
 
         <VerticalCard
           title="Clinical Calculators"
           content="Metric System"
-          onPress={() =>
-            navigation.navigate('ClinicalCalculatorsNavigator')
-          }
+          onPress={() => navigation.navigate('ClinicalCalculatorsNavigator')}
         />
         <VerticalCard
           title="Medications"
           content="ATC Classified"
-          onPress={() =>
-            navigation.navigate('MedsNavigator')
-          }
+          onPress={() => navigation.navigate('MedsNavigator')}
         />
       </ScrollView>
     </View>
@@ -87,8 +93,6 @@ const vw = width / 100;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingHorizontal: 20,
-    // justifyContent: 'center',
   },
   px_20: {
     paddingHorizontal: 20,
@@ -111,7 +115,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // paddingVertical: 2.5 * vh,
   },
   rowTitle: {
     fontSize: 2 * vh,
@@ -133,8 +136,4 @@ function getGreetingMessage(hours = new Date().getHours()) {
       break;
   }
   return greetingMessage;
-}
-
-function handleNavigate(input) {
-  console.log(`Navigating to: ${input}`);
 }

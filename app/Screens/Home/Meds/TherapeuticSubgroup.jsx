@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { VerticalCard } from '@/components/Card';
@@ -11,14 +11,19 @@ const TherapeuticSubgroup = () => {
   const navigation = useNavigation();
   const styles = globalStyles();
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: AnatSubg.toUpperCase(),
+    });
+  }, [navigation, AnatSubg]);
+
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.pageHeader}>{ AnatSubg }</Text> */}
       <FlatList
         data={Object.keys(subcategories).map(key => ({ key, value: subcategories[key] }))}
-        ListHeaderComponent={() => (
-          <Text style={styles.pageHeader}>{ AnatSubg }</Text>
-        )}
+        // ListHeaderComponent={() => (
+        //   <Text style={styles.pageHeader}>{ AnatSubg }</Text>
+        // )}
         renderItem={({ item }) => (
           <VerticalCard
             title={item.key}

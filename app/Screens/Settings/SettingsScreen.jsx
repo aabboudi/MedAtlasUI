@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, View, ScrollView, Text, TouchableOpacity, Switch, Image, Platform, AsyncStorage } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, SafeAreaView, View, ScrollView, Text, TouchableOpacity, Switch, Image, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { logout } from '@/assets/fetchers/AuthHandler'; 
 
 import { ChevronButton, SwitchButton } from '@/components/Button';
 import { useColorScheme } from 'react-native';
@@ -11,9 +13,25 @@ export default function SettingsScreen() {
   const [form, setForm] = useState({
     darkMode: false,
   });
+  const [userName, setUserName] = useState("John Doe"); // Default name if AsyncStorage is empty
   const navigation = useNavigation();
   const colorScheme = useColorScheme();
   const styles = AllStyles(Colors, colorScheme);
+
+  useEffect(() => {
+    async function loadUserName() {
+      try {
+        const userString = await AsyncStorage.getItem('user');
+        if (userString) {
+          const userData = JSON.parse(userString);
+          setUserName(userData.username);
+        }
+      } catch (error) {
+        console.error('Error loading user from AsyncStorage:', error);
+      }
+    }
+    loadUserName();
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -29,15 +47,14 @@ export default function SettingsScreen() {
             />
 
             <TouchableOpacity
-              onPress={() => {navigation.navigate('modal')}}
+              onPress={() => { navigation.navigate('modal') }}
               style={styles.profileAction}>
-              <FeatherIcon color="#fff" name="edit-3" size={15}
-            />
+              <FeatherIcon color="#fff" name="edit-3" size={15} />
             </TouchableOpacity>
           </View>
 
           <View style={styles.profileInfo}>
-            <Text style={styles.profileName}>Dr. Farouq Lazraq</Text>
+            <Text style={styles.profileName}>Dr. {userName}</Text>
             <Text style={styles.profileAddress}>CHU Mohammed VI, Tanger</Text>
           </View>
         </View>
@@ -55,6 +72,9 @@ export default function SettingsScreen() {
             <ChevronButton iconName="flag" label="Report Bug" bgColor='#8e8d91' />
             <ChevronButton iconName="mail" label="Contact Us" bgColor='#007afe' />
             <ChevronButton iconName="star" label="Rate Us" bgColor='#32c759' />
+            <ChevronButton iconName="log-out" label="Log Out" bgColor='#000000'
+              onPress={() => { logout(navigation) }}
+            />
           </View>
         </ScrollView>
       </View>

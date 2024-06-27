@@ -13,7 +13,8 @@ const ChevronButton = ({ onPress, iconName, label, bgColor }) => {
 
   return (
     <TouchableOpacity
-      onPress={() => {navigation.navigate('Settings Details')}}
+      // onPress={() => {navigation.navigate('Settings Details')}}
+      onPress={onPress}
       activeOpacity={0.75}
       style={styles.row}>
       <View style={[styles.rowIcon, { backgroundColor: bgColor }]}>

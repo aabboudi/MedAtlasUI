@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 const loginData = {
-  username: 'John',
-  password: 'password',
+  username: 'Test',
+  password: 'Test',
 };
 
 const signupData = {
@@ -11,7 +11,7 @@ const signupData = {
   email: 'newemail@email.com'
 };
 
-// axios.post('http://127.0.0.1:8000/signup', signupData)
+// axios.post('http://89.168.34.148/signup', signupData)
 //   .then(response => {
 //     console.log('Response:', response.data);
 //     // Handle response data as needed
@@ -22,7 +22,7 @@ const signupData = {
 //   });
 
 const test = () => {
-  axios.post('http://127.0.0.1:8000/login', loginData)
+  axios.post('http://89.168.34.148/login', loginData)
   .then(response => {
     console.log('Response:', response.data);
     // Handle response data as needed

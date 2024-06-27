@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { VerticalCard } from '@/components/Card';
 import { useRoute, useNavigation } from '@react-navigation/native';
@@ -16,6 +16,12 @@ const Medications = () => {
   const navigation = useNavigation();
   const colorScheme = useColorScheme();
   const styles = globalStyles();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: ATCCode.toUpperCase(),
+    });
+  }, [navigation, ATCCode]);
 
   useEffect(() => {
     const getMeds = async () => {

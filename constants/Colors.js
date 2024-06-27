@@ -5,6 +5,7 @@ export default {
   light: {
     text: '#000',
     textMuted: '#888',
+    textError: 'red',
     background: '#fff',
     tint: tintColorLight,
     tabIconDefault: '#ccc',
@@ -13,6 +14,7 @@ export default {
   dark: {
     text: '#fff',
     textMuted: '#999',
+    textError: '#F7B2B7',
     background: '#000',
     tint: tintColorDark,
     tabIconDefault: '#ccc',
